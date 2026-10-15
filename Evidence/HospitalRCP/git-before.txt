@@ -1,0 +1,31 @@
+ M Assembly-CSharp-Editor.csproj
+ M Assembly-CSharp.csproj
+ M Assets/Scenes/MainScene.unity
+ M Assets/Settings/UniversalRenderPipelineGlobalSettings.asset
+ M "Assets/TextMesh Pro/Examples & Extras/Materials/Crate - Surface Shader Scene.mat"
+ M "Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Logo Scene.mat"
+ M "Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Surface Shader Scene.mat"
+ M "Assets/TextMesh Pro/Examples & Extras/Materials/Small Crate_diffuse.mat"
+ M Packages/manifest.json
+ M Packages/packages-lock.json
+ M ProjectSettings/EditorBuildSettings.asset
+ M ProjectSettings/ProjectAuditorSettings.asset
+ M ProjectSettings/ProjectSettings.asset
+ M ProjectSettings/QualitySettings.asset
+ M ProjectSettings/ShaderGraphSettings.asset
+ M ProjectSettings/URPProjectSettings.asset
+ M Unity.XR.Hands.Samples.VisualizerSample.csproj
+ M Unity.XR.Interaction.Toolkit.Samples.DeviceSimulator.csproj
+ M Unity.XR.Interaction.Toolkit.Samples.Hands.Editor.csproj
+ M Unity.XR.Interaction.Toolkit.Samples.Hands.csproj
+ M Unity.XR.Interaction.Toolkit.Samples.InteractionSimulator.Editor.csproj
+ M Unity.XR.Interaction.Toolkit.Samples.InteractionSimulator.csproj
+ M Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj
+ M Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj
+?? Assets/Hospital.meta
+?? Assets/Hospital/
+?? Assets/Prefabs.meta
+?? Assets/Prefabs/
+?? Assets/Scene.unity
+?? Assets/Scene.unity.meta
+?? Evidence/

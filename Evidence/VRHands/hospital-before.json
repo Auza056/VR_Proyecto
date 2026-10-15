@@ -1,0 +1,1726 @@
+[
+    {
+        "Path":  "Assets\\Hospital\\HospitalScene.dae",
+        "Hash":  "B72358CAADEDAFD4C8FECFC20DB6F1D96646855048F85AF8E576A26EE44AF0A7"
+    },
+    {
+        "Path":  "Assets\\Hospital\\HospitalScene.dae.meta",
+        "Hash":  "CFEAAFC4FC24DFCEBF1CB07986E0B16A6A8B36F70636A7A08D529F69A0E47166"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials.meta",
+        "Hash":  "66A1E3ABE136CB2210FABE915827597BDD95F9CCD8BB37DF8E4BE727556DE8CE"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures.meta",
+        "Hash":  "5637CC87B0E1D6EA2044BE02D2845A04712F506DFC204DCE1D198BD263B8108D"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Bed.mat",
+        "Hash":  "F1C5FF94718D190E85A19FE2CF26C63754C6E6318992B0B0502206D3FBDC4D4C"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Bed.mat.meta",
+        "Hash":  "079DD35C0319E4BEBE95C276C52375DD2B14EB4724AC7923AA46BBFB64EF2DEC"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Cabinet1.mat",
+        "Hash":  "42FABC257FED5AB8C6734FB208F4685A479E8ED33D801FB5F0D2735E91E2C8C6"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Cabinet1.mat.meta",
+        "Hash":  "1E84D562A3D80764E15A5BACEA1323A7C7F10531F9DE43460BAE7A4BC60900D2"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Cabinet1Door.mat",
+        "Hash":  "464EC32D187B8CDA56E298550E8D68CE8FA606E7AA5270F07E44D1370AA01104"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Cabinet1Door.mat.meta",
+        "Hash":  "2998D0054C18E10CAB46482AA413F1929CEDAE49D9C3A05F1FA6031CF9FFD22F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Cabinet1DoorGlass.mat",
+        "Hash":  "55E18B6D8F85DEB4435100712D819758F2BD4A8D78BBA6E4735CF255631BF544"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Cabinet1DoorGlass.mat.meta",
+        "Hash":  "594B6C691546D675A9D2D0905F185C28D7D05BA6BAFDD39AC69FB4FBFA4817E3"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Cabinet2.mat",
+        "Hash":  "1FED09807DE1898C856B600D38D9CADDDBD34DAC508CF174384BB7EFD3B7BF34"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Cabinet2.mat.meta",
+        "Hash":  "6FBB8BF4A9D894CD9261628EDA6CBF11F05650976247EB66C734EE75F4C79ED5"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Chair.mat",
+        "Hash":  "114422A5A985F49E3C0B226CD9F0F1BFD333F7D2903840982C80B9B5FF32FE4F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Chair.mat.meta",
+        "Hash":  "D1BF0C2CA1D7AC6DB7B4BA31ED32803D003CBEB9C5CE19B6A18A01CD549DB41F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Commode.mat",
+        "Hash":  "7A2DAEB81A743AFF8900BD84AEE06D9CB0BD2F2FDED41A372E7E4F7F151A370A"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Commode.mat.meta",
+        "Hash":  "E1DF30035E4B422EBEDC8DC9545B8144AF403CDDADC2050A29EC2D87BD4861F5"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Curtain.mat",
+        "Hash":  "2ED5C58F4851B30821D40B7029F763A560C4788802B10EB7F82EC22955AD04F4"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Curtain.mat.meta",
+        "Hash":  "B083B57ADBAF5891EB7F24D73313A4B5A45B6BBBDCDF4E2CB487562F574B0CB6"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Door.mat",
+        "Hash":  "16B78C7992D8B870865D9B5DE8D0BF20B520B080D7FBD0C734243948F8666A7B"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Door.mat.meta",
+        "Hash":  "3B3E0B6BB95AD43F204C9C9EA8A2172647FB0658ACA04386CEB9B4DECBD61054"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\DoorWall.mat",
+        "Hash":  "6F478DCEBEF3E39CE0F942AC80807AD2AFD911DC15EAB80743A50AEAA638FBB4"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\DoorWall.mat.meta",
+        "Hash":  "D1483656A3D11A1AFADC9080E12E82C8613680110F11C74F9D0FAA400C2B446D"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\ElectricSystm.mat",
+        "Hash":  "7FC72A0DC454249C1EF418688BCBE0555BD6AFE2878C134668C1A50003CA6A0D"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\ElectricSystm.mat.meta",
+        "Hash":  "3BDFBBB8DD5686C2118DA2F71B04498BB3E40294E19FE584050A3E424CCA2EF0"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\FoodTable.mat",
+        "Hash":  "CB09E450D26213947936F36AA585F26997C84FC53A09012C58661CE38C7F3A20"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\FoodTable.mat.meta",
+        "Hash":  "34B73287A94B3B0645A53A67EBBFF269B2D233D225F0C4C2BF4510FC3FE173D5"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated.meta",
+        "Hash":  "C77B821169E5E78F075DB7EED86137BB896EFDA1290949CC202B9806871C77D3"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Ground.mat",
+        "Hash":  "80E87A937DF71B29568E945B6B5DF21BB29AD5A5122C0D2B7C7213D1DF6F3C0D"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Ground.mat.meta",
+        "Hash":  "D9B2A3F92F58F77AB85DBF2CA653B7EA7E30DB5D9680D64AA1A1ABDAD3F28447"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\IvPole.mat",
+        "Hash":  "29241EFA487452388F86A34F39D2D91A7089CEFA3BEEEACF77291A61E85630DB"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\IvPole.mat.meta",
+        "Hash":  "7515E71FEA07EB657FBD6001D533B0D2F2C49DEC6D2DB6B465CFAC1E9DA76C8C"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Light1.mat",
+        "Hash":  "A8FF8BD779A7E4D155C36A29C15DBCA886E24C81F836A0CD1D17871FC5276089"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Light1.mat.meta",
+        "Hash":  "2A854B90F80E75C7FC18BDE42DB00A4530F19EAFCC59260C56C7AFCD202B813D"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Light2.mat",
+        "Hash":  "75FFCE4D75B1F5DAE1535C4B9D9340722DCABAB17D80943C479CCDA875EE5388"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Light2.mat.meta",
+        "Hash":  "17AE0FBB2E946FD7FCF61E2527274CAD2467F1E7FF7281DA6183940F8A7D15A6"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Machine.mat",
+        "Hash":  "23DCB27BDF9A4A239B27FDE59BF33431426385221660EC9CEFBE30B735331504"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Machine.mat.meta",
+        "Hash":  "EFAED77EA87ADB607C08727B4B626178D5DEBFC3966FB3E88CA7185366A469B5"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Machine_O.mat",
+        "Hash":  "9A9816439CB55CB8257577ABD2A6FAB18205E30643F7DF3E4EB35A9D94E5FCE2"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Machine_O.mat.meta",
+        "Hash":  "407090CEF9C98F18BE4EAA0493340AB834D4BE0CE99044EC56BC162FD38EAC8A"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\OxygenTube.mat",
+        "Hash":  "20C041F27C5C38B68AECCC5E124299E441720BBD11F2A02617227B6623106604"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\OxygenTube.mat.meta",
+        "Hash":  "98C78A9D9464D93F999E6E5286429161AC53E211B5E65F3B6D81A827736090E9"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\PisoHabitacion.mat",
+        "Hash":  "98AC8E5924F812FD6D121899A4C86E86B664419EFA4FF72100C67027778BFDFA"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\PisoHabitacion.mat.meta",
+        "Hash":  "EB63C9C34019F637C231B6551F7CC1D1E8E84A41A25EAE02E5E4FC10FB3CAB8F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Serum.mat",
+        "Hash":  "1D30A42683F6B2216D5E94B0B5B803B79E5759C89205999935C071683C4EB7C3"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Serum.mat.meta",
+        "Hash":  "26CE09E0A16A54C6EAC6C1428B42BD54211DF8BC2570AE73CDCE61303D4C906F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Sign.mat",
+        "Hash":  "9A29C69EDA8AB6A716C8CFFD27161E6938CA329FB0C879F7FEA07FB50BF04AEA"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Sign.mat.meta",
+        "Hash":  "BD20486EDD95A9210D1DB61A02AB6A963029F5938C9383A82B61942AEBB1F250"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Sofa.mat",
+        "Hash":  "344015694A66738F1B1412B55B07874D8C68FD2E8EF22074B6FC12CDAAF9C451"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Sofa.mat.meta",
+        "Hash":  "BC3184F768886EECC7E9FF45A091538468046EF50FA86676F90057B60CC2D2EB"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Table.mat",
+        "Hash":  "D9F3D7940EABEA22BD91F672A02AA0E18A560EA8B6702823572CDB185344639D"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Table.mat.meta",
+        "Hash":  "2FC05FABB5AE5C8431E69F23A748827172C82A257C7A6C5BF6C760152183ACFA"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Tv.mat",
+        "Hash":  "3539026139D57C95169E3604DB69914DDB5B11961310C119B388F33B55D2C455"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Tv.mat.meta",
+        "Hash":  "BB58300E569081EB0A96E3828FC9240D584B45D2E16E050469B0704EE17934CE"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\TvSystm.mat",
+        "Hash":  "430BAA8D8241014E5068CF6BC94AED78116507EBD92694B85F045EDDB511A858"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\TvSystm.mat.meta",
+        "Hash":  "3E083FB08A2E6BA9D67A9A9CC8BFAF4D1BDCB362DFFFA721479C36CBB500147F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Wall1.mat",
+        "Hash":  "BB65B8DDBB5342DAD491648A521E470B9BE04582242703B0841E7BA22BF3522A"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Wall1.mat.meta",
+        "Hash":  "F0080F1026C612FC4E3FFF818ABC0543CEAD253682063F6FA7A4FC82E2C44E68"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Wall2.mat",
+        "Hash":  "9A79E4E5E06ED504E95A6C915209614DA102D0E7457B072D073164EBCDBFF590"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Wall2.mat.meta",
+        "Hash":  "4E568D56339A1DA25F181FE720E0CD3A80B5244BD66F3F4DF2BA31512089C98E"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Wall3.mat",
+        "Hash":  "858C17F7A6EA4E25366E3776D92EE83E1CE10748D49919E98866D8B05DAF6172"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Wall3.mat.meta",
+        "Hash":  "3645360AF80D08142078588BFA52AFBC234674CFB0090F33ADE70A9DC8FB4E2C"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Wall5.mat",
+        "Hash":  "48BCDF1AE68AB7877C02DBD5481BACAFB306F29A0DB0B20098536B90729488A8"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Wall5.mat.meta",
+        "Hash":  "4206288F48B3929990B9828A5E25A3A744A5CBB8EEFEA83D0DC4136E65D35938"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\WindowWall.mat",
+        "Hash":  "32DE5686F909C469A562C09ECE67F126FA14D333EFC27CC131B574A7821A2823"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\WindowWall.mat.meta",
+        "Hash":  "4C70A16BF2432CE94A88DD5BB3E25CC68E624BBB5C8D1D79C8799840CA845E0D"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Bed_MetallicAOGloss.png",
+        "Hash":  "40BCD9FAEF493B0C92EBBD51F0D70557D64501F3867142E78217B394C0C5435F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Bed_MetallicAOGloss.png.meta",
+        "Hash":  "5D3D9E75C5A2528933991678A9255A50E1057B13EB1BED5EFB8518626A461F30"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Cabinet1DoorGlass_BaseOpacity.png",
+        "Hash":  "90F1280D9183FAFAA795E278E536A1E818D826A1A21941AC9CC2AB2E4E81CDFF"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Cabinet1DoorGlass_BaseOpacity.png.meta",
+        "Hash":  "B58741B0FB4BB7041247644F1B42CF539D761C2C59AA6B8EA6A6B30D9102A028"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Cabinet1DoorGlass_MetallicAOGloss.png",
+        "Hash":  "986A09265567BB8C84201583104D9BA712B729DB831CFF0D97ECE6B5806CF32C"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Cabinet1DoorGlass_MetallicAOGloss.png.meta",
+        "Hash":  "7781115E352C889F39BA81F864BFC053D7C7689B5C414E94170541C56FD26DCD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Cabinet1Door_MetallicAOGloss.png",
+        "Hash":  "1214D0399ECDAF5D89DBCE0DBB64A369FD233AC7C52170A936108E6217B409DB"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Cabinet1Door_MetallicAOGloss.png.meta",
+        "Hash":  "591EFCF5FCC04248182918B71D64C4DD4337A37E6C30DCE5073CDE8ED65DFD7B"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Cabinet1_MetallicAOGloss.png",
+        "Hash":  "1AC08C03396EFCE8271030EA2F736913F56A76864C355E89BE27B4F17CDDC635"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Cabinet1_MetallicAOGloss.png.meta",
+        "Hash":  "9AB77633DFEF5D17D721F1EE597EFBB808A8C3780A778BCFF8FEAB8BF2BCBF87"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Cabinet2_MetallicAOGloss.png",
+        "Hash":  "A5CE7D1A4EFF49BC9197ECF59F8D60F97D18E01C81ABD7C148BFD77C55EFA9B4"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Cabinet2_MetallicAOGloss.png.meta",
+        "Hash":  "8077AB116D253F77E8FBFD0DA91A5BEB0B23F9B4D8ADD3B3F25EF5DEF13DB036"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Chair_MetallicAOGloss.png",
+        "Hash":  "556159E944A16F38E77247F3DD27914EB11BE33F8195D9CFC339F35CDE399A34"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Chair_MetallicAOGloss.png.meta",
+        "Hash":  "38FAE37A04F678611968052CE9EAE7DA598831C9B9565888CB7DF8215EFBC927"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Commode_MetallicAOGloss.png",
+        "Hash":  "2E03784E59EA2D72FBB7CBC8AAC2B7E1F6AD3C5112A087A7BD1D14702E5CF51E"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Commode_MetallicAOGloss.png.meta",
+        "Hash":  "8B8B15BBCF44E966168F10BF9F812B78C45C3FB6D98371102E8323A56FEC0F5F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Curtain_MetallicAOGloss.png",
+        "Hash":  "0AAADF98B13CD22D28DAEBBCC79FC5F900061EA91BBEFBF2C8D7598E8B6F0DBD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Curtain_MetallicAOGloss.png.meta",
+        "Hash":  "2AEA945772966CC40D1C25C0BF5EA625100654C30A0C6F57099BA35AC422EA6F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\DoorWall_MetallicAOGloss.png",
+        "Hash":  "2F1BBEF99E2DD985C4A68587324DE017875137272C4113333A4880FED4DA9004"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\DoorWall_MetallicAOGloss.png.meta",
+        "Hash":  "09471DDEB74D254FFB18C7A963EEC8079D48AC592CC05A152A7DDAA1FDA6EA6C"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Door_BaseOpacity.png",
+        "Hash":  "884D9E8176AD0FA32A8265419CE03C8896B9E45D56085961FB73E026042732E1"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Door_BaseOpacity.png.meta",
+        "Hash":  "961EBC13368215B0C2D4E308820BD5D4DBE1D17408DCF73FDB2CC518A2E8EDB2"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Door_MetallicAOGloss.png",
+        "Hash":  "6CAAED3D5B1AF3BBDAEAC052B46188D05AAAFBE99FA065661448F605D892F254"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Door_MetallicAOGloss.png.meta",
+        "Hash":  "5CD9571F2440F3671D59BED9AC769DEEA9DC45E1EA3BBC055EBC503BDD2B86FB"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\ElectricSystm_MetallicAOGloss.png",
+        "Hash":  "61462762D0CB31DCDC78FF84EDA5F981F1AAFCFD72A1C825959D5EECC7E26A13"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\ElectricSystm_MetallicAOGloss.png.meta",
+        "Hash":  "B6BA81565B8740F073A178A2F7F32EDAEAE25FF306BA8181B6D74390D6C41AF9"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\FoodTable_MetallicAOGloss.png",
+        "Hash":  "C72AC429F048D312C6A78DDB7A9C71CA43DED350696626818BF404BD5FD5964F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\FoodTable_MetallicAOGloss.png.meta",
+        "Hash":  "DF50021E8E913B16169C445CB1ED91CC7F73C335B14434DA80128B27DFB52517"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Ground_MetallicAOGloss.png",
+        "Hash":  "829DD8E8123BB1E86BF29B0B9F281A858E1C4134CA16657727BE9E78B7FA2264"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Ground_MetallicAOGloss.png.meta",
+        "Hash":  "5A7B966B1D6A42D0F23C5B8A81DFC6DF246AEA61287833C5603047B384072B82"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\IvPole_MetallicAOGloss.png",
+        "Hash":  "C0E6950B2057D56CF728C880626263AFBE4E49AAA0DE5914B1203CFEC440018B"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\IvPole_MetallicAOGloss.png.meta",
+        "Hash":  "4D2733D73A707FB4988F7CD2C6452AFA9431AC2ACA34587124177D7A5F1B9B18"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Light1_MetallicAOGloss.png",
+        "Hash":  "3D6617F39AE21E2C55F58D4B077BBBC814C2025F4385885FA5B58726FD3A6601"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Light1_MetallicAOGloss.png.meta",
+        "Hash":  "DAED3B81B1BA52B4655B7968ACEC23C2C65940A0F3BF8450BE0138205FEADDD9"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Light2_MetallicAOGloss.png",
+        "Hash":  "9A6EBA2A7918E66B809AFF470796E2A7E07A4FA0505853A93BB51F775191C25E"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Light2_MetallicAOGloss.png.meta",
+        "Hash":  "458F29808EC432DD225F1EE5629477BDB84037C7BD22AD5D0664C1C3806D8550"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Machine_MetallicAOGloss.png",
+        "Hash":  "E62ACD766AC945D32D69EE073A00A9C0C9674BD0C80915C5ABE33E3DFCBE9A85"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Machine_MetallicAOGloss.png.meta",
+        "Hash":  "7D5051213662AC1112D10E5113496217E9917BB914AFB279046AA3A93E6F4DF6"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Machine_O_BaseOpacity.png",
+        "Hash":  "C5D3805C813DB10F73D266E8654C987DCEBD90CF984B5DBBBAF0008B990F6BC5"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Machine_O_BaseOpacity.png.meta",
+        "Hash":  "9BFE21A8BC9EF41B094BBBC052AF1086F8DD0CB78EB354FBB0DC1DBBBDD346C7"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Machine_O_MetallicAOGloss.png",
+        "Hash":  "16F27DFFB8FFA7650E7FDA4E6961820A45D8A0FA1B14BCA40BA4EE12548522A7"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Machine_O_MetallicAOGloss.png.meta",
+        "Hash":  "D6A09FC1FB19BB1721021F5ABB413E637C5DAAE017A36C6B237F756A9280130F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\OxygenTube_MetallicAOGloss.png",
+        "Hash":  "ECA4983794F3C4627AB678527B283E7ADE2FC3BFBCEE92285553CD3FA18CDB50"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\OxygenTube_MetallicAOGloss.png.meta",
+        "Hash":  "D547216AAA4380EEBE584402D756C995AB29369F2C2F6CF930ECAA7D6369D201"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Serum_MetallicAOGloss.png",
+        "Hash":  "30F690DC051A497E6EB6C20ABE4B2CA17DFD3368109BED6B7942C738AE4D04E9"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Serum_MetallicAOGloss.png.meta",
+        "Hash":  "351BD56CF1FC696C3B3ECAF8DA6BA30787CFC31BEF0E389846FD7F789C7BFB9B"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Sign_MetallicAOGloss.png",
+        "Hash":  "8771478E08798A73983B9180793C854758223FD0B8A556D43CE2EA9DB86E4647"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Sign_MetallicAOGloss.png.meta",
+        "Hash":  "AE42F16DF90B00DA233402F73232FF97317E7398D278EE83B8327B35C22D5EC7"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Sofa_MetallicAOGloss.png",
+        "Hash":  "8C038FDB5399D8EDAAA0DBF250AE2E5FB403E5E2D5366A3DD1F45FA9088488DA"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Sofa_MetallicAOGloss.png.meta",
+        "Hash":  "14ECEFD839B37789EE6ED702CEEFC6DA998AA1290418749A5A333F14062AD1B7"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Table_MetallicAOGloss.png",
+        "Hash":  "3D6431039E1715839F58F83C73670468D33320D24560958E7F492B0B8B885DF5"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Table_MetallicAOGloss.png.meta",
+        "Hash":  "33A3D46BEB60F22E7FAE68C5A499C9FB494626B2B53083D65C19A2F5777FC285"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\TvSystm_MetallicAOGloss.png",
+        "Hash":  "3A4782693F3693EB042AA0DB6EE55D31690C2699A8D8E15C19E7898BF4EFC8F8"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\TvSystm_MetallicAOGloss.png.meta",
+        "Hash":  "9DED3488A2ACB664DC3A26819BB30959F9474BF91BDB743445F8824CFD7EC828"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Tv_MetallicAOGloss.png",
+        "Hash":  "01CB46C4F4B929D5BED09A74B307757DBB7BABE90AE495582DE3EC30F9E1B111"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Tv_MetallicAOGloss.png.meta",
+        "Hash":  "33CADD781FF66B08CED380A5C082B6A957619D2CF8E5FD89F41B6CF1592FA53B"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Wall1_MetallicAOGloss.png",
+        "Hash":  "54429C68FB4E2BB572CC25FE8AFC1B0AC8F350401A9818A31CBD11D016998633"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Wall1_MetallicAOGloss.png.meta",
+        "Hash":  "BDDA7DA42E631C081E4254B52E24E42650685BF8DD61B7F84BA488490C578809"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Wall2_MetallicAOGloss.png",
+        "Hash":  "F711115D45CA01843798C1115AF5657C97415A7165A18868DDBCD0C5968AEDCB"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Wall2_MetallicAOGloss.png.meta",
+        "Hash":  "FA1299C74DA249D8153828B5EA54B8A9727B925DAB6502335F21C2ACCBF4236C"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Wall3_MetallicAOGloss.png",
+        "Hash":  "051F76FC57492153AE3AF8A1FD50B2FE47F8D31073686F624EC77683DB94F034"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Wall3_MetallicAOGloss.png.meta",
+        "Hash":  "97C8023E5E5AB8551ACDC4D210F1A87374AF1E52F967B61673087DEAC9A04494"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Wall5_MetallicAOGloss.png",
+        "Hash":  "1EDBBCAD3A66E9B6B2AB5C1CA8054786F9AB6B37E092D7879A317B6D9F1F86B9"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\Wall5_MetallicAOGloss.png.meta",
+        "Hash":  "CE0A331CA06CF8C0A04E772AA618844AB3DB65D0362853EA246EB4C06F76838B"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\WindowWall_BaseOpacity.png",
+        "Hash":  "A44395CCE2AEA1D2A38165A68501F71369BED78C1A426CB5FE9822B59D8486A2"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\WindowWall_BaseOpacity.png.meta",
+        "Hash":  "709866C50BD57267A10A9A9401F7B84E1DC72DE3526943F57196FBB0B5D97C93"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\WindowWall_MetallicAOGloss.png",
+        "Hash":  "D9CB63033783B81FA2C1A071237A05A153294CBAC25F7504A6716922AFB11321"
+    },
+    {
+        "Path":  "Assets\\Hospital\\Materials\\Generated\\WindowWall_MetallicAOGloss.png.meta",
+        "Hash":  "E6C73EA2A1D675EBE7924A3D73149648E2C6019811870775C102EE6F089E8F86"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Bed_albedo.jpg",
+        "Hash":  "C0C6C59FC252DB9570AA820657F07F1FABACA0A308347251958BB41D9A8D0AFD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Bed_albedo.jpg.meta",
+        "Hash":  "BE0A9FDC83B5C902D464D2FC76004159B26D9A03C600FB8A42262EEC5499FBB8"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Bed_AO.jpg",
+        "Hash":  "57FB3D6B8CB956FBA82E7C8F4E8DAF13FB6F29A72FAE3403DB21F50D0F720235"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Bed_AO.jpg.meta",
+        "Hash":  "F530E1212AF5B55D5B5DBC277D79DC33BECC7B11A095318DC7499A0DCD331971"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Bed_metallic.jpg",
+        "Hash":  "AD16A3C40B51DFF7B6ACAAC4CD204947C5725BCF3F854D0D752EE7B8D14D2D6A"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Bed_metallic.jpg.meta",
+        "Hash":  "10ACCE3E5F6559809D8474506C4997713212FE20A092A8E6AA553DAED83EDFC8"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Bed_roughness.jpg",
+        "Hash":  "6C5A7F6775BFD8DA248247F2D8CE9F11CFDBE852F965D4F380649B5E757E1A60"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Bed_roughness.jpg.meta",
+        "Hash":  "A772E85A3589FD0A5874768F7C5043779AF05879EA481078DE4AC77B3487118A"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1DoorGlass_albedo.jpg",
+        "Hash":  "4E9FDB6F936B7ACA6DA4C675D91AC39B145CCC015D8C0483641EC3B57A0A4AC5"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1DoorGlass_albedo.jpg.meta",
+        "Hash":  "13C013F0651A743CBE65E5E1136C011CA28E36D3DA685934B9C75775E7ED991F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1DoorGlass_AO.jpg",
+        "Hash":  "143B54F9E5D1B4EBA16A544FB52E159632B454D66C182E476F281F97243D05A9"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1DoorGlass_AO.jpg.meta",
+        "Hash":  "16050B8BBFB450EF5585867F753E633198D71FE053D9F7BAD0BE46B004BF294B"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1DoorGlass_metallic.jpg",
+        "Hash":  "DEA4DE0312A4D0BA0D5C37D7AFDDFA483AFD9FA6D023E50EC1B516D83FC1EA94"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1DoorGlass_metallic.jpg.meta",
+        "Hash":  "EDFD804E18719206D05B4176F5F37A0D15ADAC7B603C78ED11C72213C6AB02AC"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1DoorGlass_opacity.jpg",
+        "Hash":  "2805DF7CD178506CC8B415B5ACBB8E918F7077B2805AB37FAC4C34335F0995C7"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1DoorGlass_opacity.jpg.meta",
+        "Hash":  "056818E4FED9E7A33A1F5C6C18EE3B0632E97E50DBC9ED26563BB97ADF2A69F1"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1DoorGlass_roughness.jpg",
+        "Hash":  "21F1CA965C2063ED8C0E7346607F6EED495D8C3D8E152D61CD1C4E311AA1C08E"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1DoorGlass_roughness.jpg.meta",
+        "Hash":  "BC7C2C61F7BA72607299C017C9D21C051CF2D88C5FA30AF61B44F6DE879EBC83"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1Door_albedo.jpg",
+        "Hash":  "373219E7C4D5ADAD44396AAADCBB99A8B0D8FBD9C0651B1EACCC0A1D1D9B8C42"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1Door_albedo.jpg.meta",
+        "Hash":  "B9EA16CEFDA14446209D2927703119BAFEC045B72FF811F8CC2E2F98D83D98E5"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1Door_AO.jpg",
+        "Hash":  "3F5951920C2AFC83116F0E248307AC0618602DDBE0DFE4D6B8FD33D21E648093"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1Door_AO.jpg.meta",
+        "Hash":  "0E7E6AD9EBB5686C8254F1E7A29BA125E59D40ACE84F46865AF2BFEB3A3FFAA0"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1Door_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1Door_metallic.jpg.meta",
+        "Hash":  "716FE58ACF774C529C800AB8B8BFAFC66759F879C68F6B48FBF28FF5BB055A37"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1Door_roughness.jpg",
+        "Hash":  "DF90F644482866625659701B6198BA789FC6BC66196DDB16C238746DF8082E99"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1Door_roughness.jpg.meta",
+        "Hash":  "29861220E34B22E4A0AB709D4D62C740030C7AB9488A6D07CFD32C0C0A379F68"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1_albedo.jpg",
+        "Hash":  "57245F60200489837E5477F54E8A780C0B1AEC1A95A3927BC199B2D0907C1C12"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1_albedo.jpg.meta",
+        "Hash":  "7E1FF09F58ADD627F96F5C02762862E1E2D50A5F75FEDACF95820AB452A9A357"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1_AO.jpg",
+        "Hash":  "5B6D1F2A58A49D534118CC3C80156C9EC5DA67A3E920AEB48D10FA80D19CFA05"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1_AO.jpg.meta",
+        "Hash":  "AEEEC5A3FA9E20E92B726B03F6678759EDC3909B3BB926D52BE991AA3891A600"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1_metallic.jpg.meta",
+        "Hash":  "81BC86DB6C893FBDE8183D58691F9A0D2E3762CB0E77CC9CCB933F8AC078473A"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1_roughness.jpg",
+        "Hash":  "DF90F644482866625659701B6198BA789FC6BC66196DDB16C238746DF8082E99"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet1_roughness.jpg.meta",
+        "Hash":  "5FFC6261AD5FC92CA825361EFCE5D8CACDA53306ABE80BDE9908038539671D90"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet2_albedo.jpg",
+        "Hash":  "A0388D178121689D41D6E587137402E8FDB1A9F988837FC2A1DB2C8138FBC26B"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet2_albedo.jpg.meta",
+        "Hash":  "544445C922E32983AB86AB9D29DA7B3FBB337A4760940A08CF96C9388A1A3524"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet2_AO.jpg",
+        "Hash":  "6F3277AA6B8AF26C624BCA05192AAD8FC8537E5AE88D1CCD7585A0DC722111A3"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet2_AO.jpg.meta",
+        "Hash":  "B70B8FD9C6831A83F7E493C6CB97A7412C974F1B67422F94A42EC5AC699EA324"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet2_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet2_metallic.jpg.meta",
+        "Hash":  "C621DDBC416ACF0320C98F58404FAE02E9F0534FB89B3BDE94D334920330CFD3"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet2_roughness.jpg",
+        "Hash":  "DF90F644482866625659701B6198BA789FC6BC66196DDB16C238746DF8082E99"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Cabinet2_roughness.jpg.meta",
+        "Hash":  "4CDCD19AA9C16AC57923F524144DBABF574F1C121BDB33AA9CA2B64C47CB7121"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Chair_albedo.jpg",
+        "Hash":  "BF30F2BD1FDB547EB365CDC9A0519EB0F8B26D70C2CC3B5F18CE24D18D3E5F18"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Chair_albedo.jpg.meta",
+        "Hash":  "1C396207ED6DCEC2A9D4C010CB587C1FE156970065F41783C5348FBD8380E29C"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Chair_AO.jpg",
+        "Hash":  "FDD411D9DF8B526D9106EE552EC789CDED4D5F0D19C04846F9590E502A6AE6BE"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Chair_AO.jpg.meta",
+        "Hash":  "E838193F321036080ADC22EE18CB5E52B912E84C8568F584946C08D931AAB859"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Chair_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Chair_metallic.jpg.meta",
+        "Hash":  "1D51ACBEE7B55914859F3E4961B852DED4CFE34B4E23F5F039EC4AD307360010"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Chair_roughness.jpg",
+        "Hash":  "C4B48FEDAF5E426AAFAA9A970910D7D0EC5C7889D64E42550A439210B22B7965"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Chair_roughness.jpg.meta",
+        "Hash":  "754C9C05508A5D64E7C11902DF049B5EE65185C4926CA58F3E82B7C80DB6C19F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Commode_albedo.jpg",
+        "Hash":  "529D374766D232939CF6280897665F998B9E291C5437F557B73B79A40695A64C"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Commode_albedo.jpg.meta",
+        "Hash":  "24C5C4809B283FD0838F65196D7A43DA4443832A2C6AB6D8D7C796B481C11623"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Commode_AO.jpg",
+        "Hash":  "AFC4DA74B6EDC0FB73FB80B6561335389E45779E546BDC780BB8C3ECBD60A48E"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Commode_AO.jpg.meta",
+        "Hash":  "B6B94C28220A82D06FCDFCC5C6BA5B7EDAE67FA2546777E9A2AEF0B42D8956A8"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Commode_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Commode_metallic.jpg.meta",
+        "Hash":  "5C7FF71FE33A518D996E577A455693D2CD134FA975A38DB3F6D8C565F21805D8"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Commode_roughness.jpg",
+        "Hash":  "E6A709629003A9996A25680BF9A2E6504D483F51DEBC2297E63D5432DE745929"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Commode_roughness.jpg.meta",
+        "Hash":  "4C8222714C79A11326F621EF673397B1C40AE23393271D60A0B9BD3B64696DAD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Curtain_albedo.jpg",
+        "Hash":  "24BC5D24D58382D994531978EEDE60E32799DF2CB1010B1F7237DA04DA366BC8"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Curtain_albedo.jpg.meta",
+        "Hash":  "20442C2E5CD710AF821F2BD08224508F63D413B3B6139346613A7001E1B0E92D"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Curtain_AO.jpg",
+        "Hash":  "0F76574E105799500D04BE855E2EECEDC1FE994F1FFADB9D9D54D59468FDE6B6"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Curtain_AO.jpg.meta",
+        "Hash":  "69325C3D7C4DA170224A5E2FE9AE7D810012D61B21465EADE912FE7EFB56C852"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Curtain_metallic.jpg",
+        "Hash":  "DEF70D9E3BF20D967CC1B96C83B7859369512DB679355EE45792FCF8FF466333"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Curtain_metallic.jpg.meta",
+        "Hash":  "1A06F16D2FFAD3269EF49E5145781C257AD83F22C777C27A418353D0A135AD67"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Curtain_roughness.jpg",
+        "Hash":  "C6297163CE0FDB3A960FF0A12AC2AC6607582EC850DF686422DBDB849F0A049B"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Curtain_roughness.jpg.meta",
+        "Hash":  "456845DD38ECAE01ED1FADEF866B2422787F48B1C14F9E20D805FF0281112EFC"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\DoorWall_albedo.jpg",
+        "Hash":  "5574F93D51CEEE09332D399AFAD9999F9FE6AB0EFDED65CBC4242A693DB2F0E7"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\DoorWall_albedo.jpg.meta",
+        "Hash":  "3D3CADC15D0DB2894EF1F97132692B9CC8FEA8CFC3B75ABB439B2924678A75B7"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\DoorWall_AO.jpg",
+        "Hash":  "0806F7845F6CDD80D2FE6C751EE7F794AB1D4520EB6C58040E183768FC8C1685"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\DoorWall_AO.jpg.meta",
+        "Hash":  "6F2154772926209E22517D286F7FAF66D3DC346143D7FD4C87F360CF537EFED6"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\DoorWall_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\DoorWall_metallic.jpg.meta",
+        "Hash":  "206D9B1A34D65E15102D29274DF1291AED2AB753A4B0A8E9A5C34045FF0EB818"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\DoorWall_roughness.jpg",
+        "Hash":  "45F791214C965563D1413AE7BAAC693F3D48A1B1805C82E597E1E6E03DE70299"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\DoorWall_roughness.jpg.meta",
+        "Hash":  "DBA3B265DCF34C3F8EFC46157D75D066E2EA967B5C21838E1233AC13F4FD8A38"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Door_albedo.jpg",
+        "Hash":  "E09C516AFD5FB0F96580C23A1AAC9EF61F65A1F48F18E1AACC21B55226D772AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Door_albedo.jpg.meta",
+        "Hash":  "B2188C42D7A17A3A1CB826443BC92DCF7AFCAF18C79B9C5C2505BE7BE88CD1E1"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Door_AO.jpg",
+        "Hash":  "C93C518E5AA019093EF73BC5B8D62588720BA693ECBD53F7FD4C86CA7693B616"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Door_AO.jpg.meta",
+        "Hash":  "B6CEC9A644B5941FB37A9E3BA01FC60F77446E59C2FAF47C21B995B312386818"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Door_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Door_metallic.jpg.meta",
+        "Hash":  "B2AF723BFB306F908140C808A3EED9F719E2BA1D81A9561E1EA1871F1CCBF9A9"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Door_opacity.jpg",
+        "Hash":  "EF85E6F52D7CCA0160174A534B09EE3E67FFB3B254F06F511585909A09AED226"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Door_opacity.jpg.meta",
+        "Hash":  "E63F0CDD8FE4E034DBDB8B2F7280411DE370D90025DC94D89021AA2A78D238EB"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Door_roughness.jpg",
+        "Hash":  "4561A71C6E42127AF37F3A1BBE47BC281CF2F83EE19F847D7B22EEBB29CE6A10"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Door_roughness.jpg.meta",
+        "Hash":  "CCEEB8C3E58990283D1E602E972BB486E5C9CB1F7E0FED8C8734D45B6D382FFC"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\ElectricSystm_albedo.jpg",
+        "Hash":  "CDE191682C5F371A85FAA1E1A3DE3FD2E6A576E8A25ABDC7C6B4F6558EF5CBD6"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\ElectricSystm_albedo.jpg.meta",
+        "Hash":  "6BDF0F3A106D0E68B516982C65F9BF9123C8647244D39A95F60214F75F160828"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\ElectricSystm_AO.jpg",
+        "Hash":  "298C526BCD6A8BB60E7324A43B7510D7D4EC8E3AFBEB9DADDF603D656EB9ECCF"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\ElectricSystm_AO.jpg.meta",
+        "Hash":  "46315965E4009556A46DFB3437E1BCF55CFFBAEA207E19950A25F9F3F57A3CDF"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\ElectricSystm_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\ElectricSystm_metallic.jpg.meta",
+        "Hash":  "CD26B140AFDDF03D4CB80FF692D714F4050593E0D48CF664D27C222ED876D652"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\ElectricSystm_normal.jpg",
+        "Hash":  "580E99AD4A674D8F298802964A097A67760D41FB5999256B689E7A9ACDF74322"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\ElectricSystm_normal.jpg.meta",
+        "Hash":  "14EC4B8377132CF8F7A4D84C7E5BA51510C364CF8C9D8AD3401821A5E06EAD51"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\ElectricSystm_roughness.jpg",
+        "Hash":  "C02679D15BEAA36C6C7052E2F8DCD5B4C8CA0D77747E02A4CA770AFBF88175B7"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\ElectricSystm_roughness.jpg.meta",
+        "Hash":  "839F65013B3533298FEA61FD80039120D860CB99B770D5BEB9D68D6590F8D528"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\FoodTable_albedo.jpg",
+        "Hash":  "59FE08E52C1F67EECD80D78012A1C80863CF49FFBE94CE9B7E68D31D6B7DFBDB"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\FoodTable_albedo.jpg.meta",
+        "Hash":  "0B5C2A64AC4B638491B9C44FAA80B06B4793E6D38BEBFDAA7B7966D962573853"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\FoodTable_AO.jpg",
+        "Hash":  "A00272935D7F1CE89FC36FC0C1E4ABBA2F142D24CAB0BDC4A286EE34CDBBE9BA"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\FoodTable_AO.jpg.meta",
+        "Hash":  "A794B5AB74E05BDEBC13652406FF7E5B1E5B9CCC309F884068BA63DC6AD14385"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\FoodTable_metallic.jpg",
+        "Hash":  "00E37FC87B3FB4D92489005505D84DBC1276B8DF79F2D9B123017961F4F9EAD2"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\FoodTable_metallic.jpg.meta",
+        "Hash":  "662D7EEFAF094EDA2D606290E0FC10E0DB7FB628A49C983121D9EEEA8A53180F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\FoodTable_roughness.jpg",
+        "Hash":  "0839A93BC7D47F30D3ADC28A06ABA9B7E1DC72DFC7D14FD95BD0B5E45BC882DB"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\FoodTable_roughness.jpg.meta",
+        "Hash":  "F6F04B0179DAB27FF33E15A939B807C4D5DF5EEAC3E8597A5A896A55B4661917"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Ground_albedo.jpg",
+        "Hash":  "079C77D8C94AEAFE42E304A3C3D9B6D82C45944B37489EA25383524D6163EFDF"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Ground_albedo.jpg.meta",
+        "Hash":  "A998E03DA9B1B366807CA58A6FF6806EC00F63678EDDD05DCD51AA61462EEBD9"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Ground_AO.jpg",
+        "Hash":  "9B5DB661586A3E341FB262B3709F0D1AE95DE16963FAE58B6D2D3C32D288B798"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Ground_AO.jpg.meta",
+        "Hash":  "40E9F4D5979259DC9DEB1C3D08E475E565F0CF2D2EDA0A05E8782D8B8D8DB663"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Ground_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Ground_metallic.jpg.meta",
+        "Hash":  "E43362C9713594F1E19E9A624D9ACDDF6EB3EF9261796C2AC904D196598496A4"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Ground_roughness.jpg",
+        "Hash":  "A4E8880746EE98A1D2DB1A669B3ACC86620406E334BDEFC10B6894ECD49C366F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Ground_roughness.jpg.meta",
+        "Hash":  "5EC16A3AAD9D22709E6CB0CCFC3D0B1CFABEA1CD6864B85257F0BF80154A29DB"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\IvPole_albedo.jpg",
+        "Hash":  "87FAB023F3C63722DF6893B0FDEB41AAB165781B280C4F5315C11C22DF569D14"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\IvPole_albedo.jpg.meta",
+        "Hash":  "443121E89C1FC63E2C8B7A6DA42EF0BB1E2C4F6B7DA37D549278E5C3B97472EA"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\IvPole_AO.jpg",
+        "Hash":  "8EBA4D5A3BC5C972151F8E83F6FBBDB4DA0A8FACA91B487B55AD8CD810053E1D"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\IvPole_AO.jpg.meta",
+        "Hash":  "CA6A4336E7C19DA6A2F0917BB8E3DB5B296D2AF99715661438E52B6C96C3403D"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\IvPole_metallic.jpg",
+        "Hash":  "DEA4DE0312A4D0BA0D5C37D7AFDDFA483AFD9FA6D023E50EC1B516D83FC1EA94"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\IvPole_metallic.jpg.meta",
+        "Hash":  "A95ADDB009447EC1ACD6A624C3CFA09696AFBD91E6950A3F8C143726C3AD36EA"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\IvPole_roughness.jpg",
+        "Hash":  "237037BC879174D96E186613AB74C91DB01148CAF00C6F5E00BF314958CE9DFE"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\IvPole_roughness.jpg.meta",
+        "Hash":  "C88683130C1943EA32BD721DE2DC1AC59438B140F56E79E8228887E303D1C232"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light1_albedo.jpg",
+        "Hash":  "812C9B0DE9408C63FF37EE4816D87736E53B8326F21E91E4B6AF65783A697AB5"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light1_albedo.jpg.meta",
+        "Hash":  "8AC5352BA81D227DC8F506DF52A0DF70D070D97AD0AA0193E9C409AD459B1683"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light1_AO.jpg",
+        "Hash":  "541A66290C9DA13B32058724C75AE2A1C0DC657F4D73FB779D52DC7337287444"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light1_AO.jpg.meta",
+        "Hash":  "5F443D8E9E4FBEF96F5F40C610E80C460C71267A23042A0E3FB8486B34464616"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light1_metallic.jpg",
+        "Hash":  "E8C371072321BD29818FF00FC417FBFD3F2178A9E67004CA68C8B6F281D1F5F9"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light1_metallic.jpg.meta",
+        "Hash":  "24413DE7373C40DA75D43513BF29C5EEB9170F34E0CB11775DE82F6A2306181D"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light1_roughness.jpg",
+        "Hash":  "C3DA3B99EDF47C59C95DF1EABAD4FCA024ED97564BD3303C39C809DB12047E7B"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light1_roughness.jpg.meta",
+        "Hash":  "B0113DA49537C6D0133B990E65698749C0CA0AC641613273ADCF3CDEA15D4B70"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light2_albedo.jpg",
+        "Hash":  "4A62EC799E07FB0FD36DF766B847DC461D0CEC980964192DFE4DD78043B9AA46"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light2_albedo.jpg.meta",
+        "Hash":  "948EB5218A5B356406EBFC6FCDFD76B3DC7512E59A340ECC169C3F2E0D47F29E"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light2_AO.jpg",
+        "Hash":  "348FE42C99648B4E042917CDB7613A7AD049DEE981B427D928A34164E15568F6"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light2_AO.jpg.meta",
+        "Hash":  "5D1FD5ECC2C8F73A27A46FE71485B11F371A598FDB324A3670184E1267552AA8"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light2_emissive.jpg",
+        "Hash":  "4A62EC799E07FB0FD36DF766B847DC461D0CEC980964192DFE4DD78043B9AA46"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light2_emissive.jpg.meta",
+        "Hash":  "AA4BF8CDDBDB2E3FA08B78A6E0E5C134785C46718F84EB5D630AA7D15BBD09E0"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light2_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light2_metallic.jpg.meta",
+        "Hash":  "A0477F9B2A0781BEAE2A0C9C545D71889D39B515306BA9632D2A06341C67F857"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light2_roughness.jpg",
+        "Hash":  "DEEA0885008723334EF1CA7BDED354BF1AEBDF19BDA002766F598A547137744C"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Light2_roughness.jpg.meta",
+        "Hash":  "4624269E1EBA7B04348DF89DD4AE788F2A57CD055FA809F118F7043D5CA3443A"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_albedo.jpg",
+        "Hash":  "E12EFE8029F4AEDC93A56B6E8778599128C9B2D458FAB8F736EDC3A6AE793B26"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_albedo.jpg.meta",
+        "Hash":  "C4BDDF2AA9D8A38EC1E4F385CE059C4C055895AFCBBEF241DED7A0EC5DEE3A85"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_AO.jpg",
+        "Hash":  "7B63901A46290487E5DE5DDE73458AFFB1381CB24BB47068E7816A6F694664A3"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_AO.jpg.meta",
+        "Hash":  "32959477BADEDB9D42987727E11C1A3441234295B50023137DF1612D85518BF1"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_emissive.jpg",
+        "Hash":  "F528A4677DC7A2EE728077CB56F65AEE657872C769D5C7C9E2CB41DC7AF046F1"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_emissive.jpg.meta",
+        "Hash":  "694B7AA3A0A82D0F8E937FA19093E68645645FEF9057B2A8118BD8A7515048D8"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_metallic.jpg",
+        "Hash":  "BDDEC0F25A11A0CABED5233E0F6CB64C4CB1CE4B2D52A6F135AC588BA181A1B5"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_metallic.jpg.meta",
+        "Hash":  "DC5AD3A48E493B1EA354AFEBDA842D7A850686A4A54DAE4E7CEC98B557F48F10"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_O_albedo.jpg",
+        "Hash":  "76FBBFD2A3FA8185A9AB4D8B711741A1AD6EB64A8738B76872B16539310D7737"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_O_albedo.jpg.meta",
+        "Hash":  "3C1E0CFD0FF9B7E218AF485382F3E4BE732B2D959A7A4CA80BD34B93386DFBC1"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_O_AO.jpg",
+        "Hash":  "54A09F0CC2AC70E89092AC29F1FA5C2B29766690FDBA4BD88A5B58B4ABF19184"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_O_AO.jpg.meta",
+        "Hash":  "3139A51D4CE41BC2BE5CCCBD2F11275BE872FF451C5C65BDC75BA0E63DE92585"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_O_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_O_metallic.jpg.meta",
+        "Hash":  "C6380C1CA0BEA3A1A9FBC308EB4ED223ABFEF8A0837D7EBB9B097CAEF5CC73C6"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_O_opacity.jpg",
+        "Hash":  "DEE2E1BE928157F4FAB9B52957FE1BD09E10901A11B1590AB77DE07AC7C9097E"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_O_opacity.jpg.meta",
+        "Hash":  "693CD5B52EFB9D56584AC4D45D7E34427225C28D1BCCFFD30CFF2E9A4D64D209"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_O_roughness.jpg",
+        "Hash":  "2D765DC76959953ED99959609991320F3FD297C3E4A88142415B1C744836633C"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_O_roughness.jpg.meta",
+        "Hash":  "4BA935499438A30FAA3DB7AF7D109B47BDA2C843416042E1445F451B73EAFD9C"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_roughness.jpg",
+        "Hash":  "538C1D3B90A5F0DA8A30318CFE4D56B284398A76631AEC6009855DEDF4730236"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Machine_roughness.jpg.meta",
+        "Hash":  "835596F9C9BBA9465BBA3166C31A79EF82C063F08348B1ABE58BDB4A461A5D0C"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\OxygenTube_albedo.jpg",
+        "Hash":  "3C8B85AB08FB56071D7B5080085ED367B90155E365023606A071270B6CC7D557"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\OxygenTube_albedo.jpg.meta",
+        "Hash":  "AF164E7F289386E851A6F4B4B125E24992E5E7739D45606595708E83A6D8C9DC"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\OxygenTube_AO.jpg",
+        "Hash":  "CB523F3EB5885A073926B30812CF3FA93EA19CA5F3ABE4F8B2974B2720BDD980"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\OxygenTube_AO.jpg.meta",
+        "Hash":  "D8061B84C7F38EBB8585FC912DD3D9C98EF0B4739AB70E65BE68D65FE4298210"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\OxygenTube_metallic.jpg",
+        "Hash":  "F377AB433F86C67D2D0D520425E0CF43F56FF0C56307E7418B1C7B9EEAC670C9"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\OxygenTube_metallic.jpg.meta",
+        "Hash":  "404600ADE6BD96A010740A0EBDA4DB5D3C832E045AD907D9878EEC23F07D7762"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\OxygenTube_roughness.jpg",
+        "Hash":  "B2D14EADEA8FE819EE8C931CC107EF671B98CC54BE4D2ABE93311FB02CE8DF25"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\OxygenTube_roughness.jpg.meta",
+        "Hash":  "42DD244A724E52F1CC5672EA40782C10C5CA602F6F4ECA9B4BE0AC91008B559A"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Serum_albedo.jpg",
+        "Hash":  "21D246AE711F819812A134369B4B4BEEA8047E6B8A4FC8D80359C04024157F47"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Serum_albedo.jpg.meta",
+        "Hash":  "FB1CF3213B043FDF74C699021FA4CE49FFEBF31CD4CC9A76C6F0BE830CC86A2B"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Serum_AO.jpg",
+        "Hash":  "3D58C7CC8E5A7006838A8C0FA3381B03FCA6F07401488DD0D60AA8CFE5C9F18B"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Serum_AO.jpg.meta",
+        "Hash":  "4668C6F0E21928726CE9CC78E2D30BAC6B8C6C1026F5DEA669C41C66B5467D02"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Serum_metallic.jpg",
+        "Hash":  "FF171A8B873F850A70EE54B383D99E8B7BADF60F291F1299260D1C78E3E5FAB7"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Serum_metallic.jpg.meta",
+        "Hash":  "BC077ABB915B9C3BA41446E84A6FA85D53A7C69155EF3280E490EF11EDC01987"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Serum_roughness.jpg",
+        "Hash":  "8F885363ABFE99A54973331CFB40B9E319858F8C9F430D9D5C4681E125F9D6EE"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Serum_roughness.jpg.meta",
+        "Hash":  "D616620B07FF733D5AC208C85F59E5D9AF0709D93628DFEFCFFDAEA0DCD777D4"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sign_albedo.jpg",
+        "Hash":  "7066AB894EE40D8854901C7605349EB8C2DF3F93775E8C783537023785D75709"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sign_albedo.jpg.meta",
+        "Hash":  "B29380960998FC6D59AEB23A54C53D7A714E0FD7EB2D21855E6667BA30E7A8A0"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sign_AO.jpg",
+        "Hash":  "B53E78537D600F912EC7D3F17939966F3E418346CD4FCED738DFED93CE131DBA"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sign_AO.jpg.meta",
+        "Hash":  "9BF4CFD0D936DF90FFC2C59C591E774800739320637CB7CBD72FE073257B7241"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sign_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sign_metallic.jpg.meta",
+        "Hash":  "1555754F4B293BC715D114EFDE5FA06E7C85E59CEE871FF3ACD3A656106E3114"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sign_roughness.jpg",
+        "Hash":  "DEEA0885008723334EF1CA7BDED354BF1AEBDF19BDA002766F598A547137744C"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sign_roughness.jpg.meta",
+        "Hash":  "BF3BBCEA067E3ECA908D41DA5C38965B6A01117F44F8540B658B0A0DF80F0213"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sofa_albedo.jpg",
+        "Hash":  "EDF9F8809FDCECA897802B7344AC20305D2C0417F3160DCAD24AC20536BED1CA"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sofa_albedo.jpg.meta",
+        "Hash":  "64A63C8A84C1BF2206CBB539324F1AC64E24DA9653652B414AB1AA789BBD0024"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sofa_AO.jpg",
+        "Hash":  "9EDCA42BBFE11112B5429688F4DC8C7B99BBB354A05A121AF979C63C37A1FBBC"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sofa_AO.jpg.meta",
+        "Hash":  "C898123C3331671D5E56EA6CD2116A8A4AF5BB59802BC222CB975EEDCBCE8ACF"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sofa_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sofa_metallic.jpg.meta",
+        "Hash":  "F565609A7A3C378E104A57C6B7F8D7F4B5A6E9059879904E6A21D6BF13F991F2"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sofa_normal.jpg",
+        "Hash":  "E70DA8E55229A01BBD2EC46513BE55A36D339C0C3A5329A06DBC32061ABC9BFD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sofa_normal.jpg.meta",
+        "Hash":  "EFD6BCAC5F6862A7123FF3A8DB3F6304BAEBCE292CDCE71CFF7AEAE2BB7449F7"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sofa_roughness.jpg",
+        "Hash":  "BA12646AF5CA90A567438E577087793FD7D645D121C18866C4DF12AA3B220D1E"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Sofa_roughness.jpg.meta",
+        "Hash":  "EF1E1894838658C4BA329BDAC93B2E83B7E59DAC3EB6BD759EBAD075F4368921"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Table_albedo.jpg",
+        "Hash":  "EE64CF97159497C57FC761FD30E7AFCFB38979332F4E155F7E9B000EF9AA8B6F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Table_albedo.jpg.meta",
+        "Hash":  "DFDE50ED8AA4EE489D7998A4147B4FCA2AB15DE68D051D1E1FDBA2CABE0912C4"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Table_AO.jpg",
+        "Hash":  "CFFE3E0353622853040437EAEBF0468A6E9845CB68578410DA710BDADF0467E8"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Table_AO.jpg.meta",
+        "Hash":  "0A351B26DE6B6B92F64A2EA1D126AE5F716EC56D0C2634D88E9D71DDF822F0C3"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Table_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Table_metallic.jpg.meta",
+        "Hash":  "306B549FE463E5F8B297D3C8095726D605BA742DBCB53E8EE5BAEC213F462AD1"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Table_normal.jpg",
+        "Hash":  "750BE9FB5AB901C2842C778AFF1BA7F39DF075C87640E1A083E425397BC53482"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Table_normal.jpg.meta",
+        "Hash":  "EDA772DB78D8A457DCFE32909F05CC02E4071F2832F21F5AD642A283F63FBF6E"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Table_roughness.jpg",
+        "Hash":  "DF90F644482866625659701B6198BA789FC6BC66196DDB16C238746DF8082E99"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Table_roughness.jpg.meta",
+        "Hash":  "C4617CAE3B89194BB99E1929F44A9C40D21ED35BFA650608CC0A5D75859E1E99"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\TvSystm_albedo.jpg",
+        "Hash":  "8B0B81ACD2880788B61CD0D2467EBAE773EFAF111C766CA1F5C368AA2816B457"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\TvSystm_albedo.jpg.meta",
+        "Hash":  "5F5ACF73951CF9EF53FA677C64B301ED5EEDF41BB33420F3536C1C26A9B2F3A6"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\TvSystm_AO.jpg",
+        "Hash":  "F483CBD97C8208561C6A05DC739E12698F949C76064306CE48B7F32456734479"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\TvSystm_AO.jpg.meta",
+        "Hash":  "C70CDC64556049C0D78771DD51EC08AD91236D09E816307853C323211C1CD691"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\TvSystm_metallic.jpg",
+        "Hash":  "70D77CD0353DB38E82298CD4921F878E255EEB5058D1FF8BB8AB05F54B9061D8"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\TvSystm_metallic.jpg.meta",
+        "Hash":  "4A7385ED367B8E097863D227F28DDF26971C31844FD22657BD636019B8666E86"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\TvSystm_normal.jpg",
+        "Hash":  "39B7808712D4F86C21A4B69C863FC4A9881734D6D83674A78ACA9574222B4F38"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\TvSystm_normal.jpg.meta",
+        "Hash":  "06B8772D1348262AC6E805277A9CD6989CA5ED45B5CD841BB1E97A31ED03187F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\TvSystm_roughness.jpg",
+        "Hash":  "763129B841C78EDB11EC24CBFC029348D3B50165BB3658B00D33CC33A6DDF4A2"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\TvSystm_roughness.jpg.meta",
+        "Hash":  "225101F7CCDEC2B518B56C98C84CC6F6BDCE4A77E22F5E7DEA0C9670DBDD6B30"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Tv_albedo.jpg",
+        "Hash":  "54FF062FDE34603F1FBA3FE859DCF308263322D21FA208138017CE7B15E5759B"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Tv_albedo.jpg.meta",
+        "Hash":  "4DB8545813D965863A5CA012FEC57D924A126476B56D2D0BC928EA8141B7511A"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Tv_AO.jpg",
+        "Hash":  "BB188C464094AEAA16B11F6B9D0B27A39C45CE34D09094E496F4D7972DAD369A"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Tv_AO.jpg.meta",
+        "Hash":  "C21A7CD6374F803425EF4B2D0C9135E7815725F4E385980FFEEC2BA09480DB78"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Tv_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Tv_metallic.jpg.meta",
+        "Hash":  "FD25DA8B2B80310D88D27E1D0C30673876D8D8C58EEF356A18DF346BDA782A5D"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Tv_normal.jpg",
+        "Hash":  "9C73C874A97D18E89D1449492219259A957C564359A7AA43E8CE703CD7D3E4EC"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Tv_normal.jpg.meta",
+        "Hash":  "99340C2DC9655FCC6BF7708FA4117881C0DF0517065316627E92158E13BD2FBD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Tv_roughness.jpg",
+        "Hash":  "C7224FED839E6661D2FDC23811411FB3532A2EED043BD14D3DFABFF36C190CD8"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Tv_roughness.jpg.meta",
+        "Hash":  "51101F1064BF46CDDCD0B72E6C4457A886211FC639F13B31E05F86E3A3E5ABDD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall1_albedo.jpg",
+        "Hash":  "A1845A3652BA2DBC3DEF3EBD7485B40CA2D5F3A4468252E4CBE4E6339062BA6D"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall1_albedo.jpg.meta",
+        "Hash":  "D8F8D7526602DC54AF9D54935736FA4D52D7B8FD71C8EB470B6678293AF9680F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall1_AO.jpg",
+        "Hash":  "0BAAB5F5FD94E7ABBE0ECAB67626EDBF1A318509F51245903FD8323A9FBB06F4"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall1_AO.jpg.meta",
+        "Hash":  "8A28D7F8400E7CC0CDCF644CD813C84946BEB84E08E63EB4F8F93B4374D38F9E"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall1_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall1_metallic.jpg.meta",
+        "Hash":  "1B656DBB6F39C95CB4B9F1184AF27C8950623A281C20D3B69C39A1FAABD97D1B"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall1_normal.jpg",
+        "Hash":  "97DBD1B497B09B5C410BC882076E1E6AB06557F21115602966F6E02944635EB3"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall1_normal.jpg.meta",
+        "Hash":  "12748959D42BB884A17FC1424E0572ADFA9288D5182F1116A3BF0EECA733D73B"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall1_roughness.jpg",
+        "Hash":  "24E95F4EC7B249995B54305F11E5E6D2280A3879B7BBA3971953A7BFBDA5BC8A"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall1_roughness.jpg.meta",
+        "Hash":  "D6194487BF0C08B05D209C63217D97F83F68CEF96CAD734CF81621FF0EA7DC6B"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall2_albedo.jpg",
+        "Hash":  "C75D4D60405CBE0E5F3E6EFA8BDEEFD36DC99D9DC95A6B8587211728927C4C30"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall2_albedo.jpg.meta",
+        "Hash":  "C442FF2CEB76433FF75C1929834B9F47D58444131DB5333BB4010BD72EA3A69A"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall2_AO.jpg",
+        "Hash":  "EBC299022D11916A4144FBD8D8113D4CEC03823B23C6C8C7DEF6BC82291C0B07"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall2_AO.jpg.meta",
+        "Hash":  "0941263FAC4078F2F76A303964B11F29726C2453DC8DC7986C1F9693F5170CC7"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall2_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall2_metallic.jpg.meta",
+        "Hash":  "CA2B8FD292BB435BE87D3AC5EB7A3D271AF5F348109F09CCD736A9464C8D4941"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall2_normal.jpg",
+        "Hash":  "DAE83D09AF89AE42BA6719FCDA447B4A453AC13CD53C729A4F3CE03EEFF0CB25"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall2_normal.jpg.meta",
+        "Hash":  "D26D32233A90ED3A03A4B2FB46C3496AB402655C016523E54C9FECE2F2CA2A43"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall2_roughness.jpg",
+        "Hash":  "64A6A52E14574F0F87AD7069ACDEC037D97DE2E9C88A33A0F74D719EE3E64224"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall2_roughness.jpg.meta",
+        "Hash":  "2215F8FDCC560F1981DD11CAE2CD5C4C1454764FDAB7D6A8E7FC07CB617A866E"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall3_albedo.jpg",
+        "Hash":  "5DF6CD9304A8EB2C3DFB4E439BED3FB3A734781575FC91C1129CF46E983AF8A7"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall3_albedo.jpg.meta",
+        "Hash":  "8BA313AC3D738095F90E48AB44F9FF3802AA307E4ED39083B89FF0B9E51B5CA5"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall3_AO.jpg",
+        "Hash":  "9B916667D7E2D6810C1BE6CD164857CAB9E1FBB01C8F19D17FDDB5CF0060B050"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall3_AO.jpg.meta",
+        "Hash":  "5D8AC5FEEE03C1858E51C5D3B14B775E174954CCCFE4A5C135A09157318144E7"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall3_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall3_metallic.jpg.meta",
+        "Hash":  "8FB6F94104FBA7F98A8764046727BA9A19D91F0A9A0328778F85366860A83425"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall3_normal.jpg",
+        "Hash":  "A8824B0B9C2D64083B1FC0490B83980A0EC4431F92CF0E75C0FE498C6CA10289"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall3_normal.jpg.meta",
+        "Hash":  "010FA3DF3668C8A1AA861030DDDD599211C3074CF46BD7ADA98713DE518F5A3A"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall3_roughness.jpg",
+        "Hash":  "80E028597A31B5FFDABD8574ADC95DF4A6E8A25ECED9DF2FD34F4F13B693CF15"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall3_roughness.jpg.meta",
+        "Hash":  "75E5A7F69D083D21BF6EDC8AE506BFE29FCF3ECEA4B1B068FCF231DEFA49EFB4"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall4_albedo.jpg",
+        "Hash":  "14650EF99C83B01839E36E1253CAF248A89CFA4EBA30DEDF02E675AA86F3E353"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall4_albedo.jpg.meta",
+        "Hash":  "B71777A61908F3BB2A2412B2E5043A07CA5857839DA1EDBDC1CEA9822000067F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall4_AO.jpg",
+        "Hash":  "6BFAAE1BF05794F4415BF0242DB9568886F9D82F99EE0F783064C4B2F383D43A"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall4_AO.jpg.meta",
+        "Hash":  "2673A83FB42A94B595CACD1A5872E15861B7083BB3B13D75B9DFF6A3597ED1FD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall4_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall4_metallic.jpg.meta",
+        "Hash":  "A992958EB8CB498C2CAB59C621461E304786E3810935EA3D6ABD10FEBDFD2D9E"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall4_normal.jpg",
+        "Hash":  "4C872D0246A492CD3188A38D427250A0A48F65A0C4943DE237B057693A74A241"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall4_normal.jpg.meta",
+        "Hash":  "8E8753369FF891C8C3EEC4C1CAEFA2C78D75FAD96F16340B382250C689FFE3D7"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall4_roughness.jpg",
+        "Hash":  "CF24B6F580F14F1710FDD2795007777AF841AA76D8BBDC34F6E4E2B0D99137BC"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall4_roughness.jpg.meta",
+        "Hash":  "B7C0014C52299F1B2FA0C107B886D3E524C3323045DB156E020B3698CB175FA2"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall5_albedo.jpg",
+        "Hash":  "868C190FAE0ADDEFEE59E5623ECCB0B71CFABB23BD93CD51E4A35574B705AD4E"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall5_albedo.jpg.meta",
+        "Hash":  "9BD43434555002396E08A030CE7963A1075DE00D3CD7E551C86001299240556F"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall5_AO.jpg",
+        "Hash":  "F58274A651403623DC95C3E96F29F6304543A5BCED4992949A2FE5CA14EEB7EB"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall5_AO.jpg.meta",
+        "Hash":  "BD64BE019169F5DC18C64CD88982DF979EB3A7E334AF0EE8001DB6B9599E9DDF"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall5_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall5_metallic.jpg.meta",
+        "Hash":  "5E92A13950EADE22C00F1537EE7D06746E3F7158CC0AA4DEACA329CBB82CD7DA"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall5_normal.jpg",
+        "Hash":  "A52D96882688D87D9ECE4CEFA3F3F37FECD55582415E58F749AA3A5B1A972103"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall5_normal.jpg.meta",
+        "Hash":  "A9A9903E5FE38A30BC4FD23DB1C904057A00BFAAE76A6B40C357CE03438C5305"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall5_roughness.jpg",
+        "Hash":  "1F3E6FC4027459A7D38E4E1EA95F4CAB609035176873563AE7B751ABB11C5495"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\Wall5_roughness.jpg.meta",
+        "Hash":  "BEA440ABB711E9BE43FFDA754A3745B5C721D5E5C059FCA53C6A21734A904491"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\WindowWall_albedo.jpg",
+        "Hash":  "3E76D100ED79F76775C4D72B3C189DFA18B8502987501799B830E895B40F2DC2"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\WindowWall_albedo.jpg.meta",
+        "Hash":  "A6E20FEC432642E93FE93316A2E33928BA4290608C43DB3E12843B72187358C9"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\WindowWall_AO.jpg",
+        "Hash":  "F20A50B71DE57AC367140151F6A87CF2DB26DCA05DA5E4F64BA98991E32E3ABF"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\WindowWall_AO.jpg.meta",
+        "Hash":  "55928E92A38A203A64421C82AC9329507DE6EDC7E500C9B304C94B82CE14DE04"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\WindowWall_metallic.jpg",
+        "Hash":  "FBBF6BFADE895926D9A39A4CCC287C30585C38C9C94896C733A6DBB126F2E0AD"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\WindowWall_metallic.jpg.meta",
+        "Hash":  "7E40E8CE80E61104B5F027EFC26EBEB900CEE57A9031D1550A4B055F0533BB2D"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\WindowWall_normal.jpg",
+        "Hash":  "EB58CECD0BEF6AD4FF1B621AD1DE6BA95E82DDDC98CD823F1ECB99B80DE1811C"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\WindowWall_normal.jpg.meta",
+        "Hash":  "8091C990883DD5BE2E73D0BAEDB9D9554AE0CC8AB3580DF5AD6D8A302E3F9A43"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\WindowWall_opacity.jpg",
+        "Hash":  "DDFA8BB7B15EA9B4848CEF2335330CBD0AD544BBD84B5E308DE25F481DC9948E"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\WindowWall_opacity.jpg.meta",
+        "Hash":  "E1A63BADD69718230C35184C4D542FFBA7461E1680319016E23AB269EACE394C"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\WindowWall_roughness.jpg",
+        "Hash":  "737F42DF9683567A3D88479D00B893C4B1290F261AB3CE143E329BA983451699"
+    },
+    {
+        "Path":  "Assets\\Hospital\\textures\\WindowWall_roughness.jpg.meta",
+        "Hash":  "EE9561CB5D3EEC720F57A8BD3054523722CA036474A3F8BCA41789CFFE4BC36D"
+    },
+    {
+        "Path":  "Assets\\Settings\\DefaultVolumeProfile.asset",
+        "Hash":  "463776C51AE49D4FEF980E8FD268081B2F505610D79315003FAAE1ACFF8F4115"
+    },
+    {
+        "Path":  "Assets\\Settings\\DefaultVolumeProfile.asset.meta",
+        "Hash":  "43E8F7BED8F99DA631D74EE652953C230594E150CE305D313EC0844E312D574F"
+    },
+    {
+        "Path":  "Assets\\Settings\\Mobile_Renderer.asset",
+        "Hash":  "76431DD5DD9DB51E5C515B8EFE45DB0B0AE9C26081CED605A29ABBC608B11344"
+    },
+    {
+        "Path":  "Assets\\Settings\\Mobile_Renderer.asset.meta",
+        "Hash":  "DA2404303C1D6F6AF244A6BB7AC7D65CC8CBDD741C804CC913BE8BE861E65379"
+    },
+    {
+        "Path":  "Assets\\Settings\\Mobile_RPAsset.asset",
+        "Hash":  "1252041AC9A3E46AE416132927BCE49527F92619EEA76743D41C121AED6C1BDE"
+    },
+    {
+        "Path":  "Assets\\Settings\\Mobile_RPAsset.asset.meta",
+        "Hash":  "4718CAB1245B68049FC0C4E0ACD26AC7C4A7E8EB7DCDB8F357159A129CA615EC"
+    },
+    {
+        "Path":  "Assets\\Settings\\PC_Renderer.asset",
+        "Hash":  "13F85FBA57A55E3A68EFD59B3016F0C6F2D971B99F5E213ED52A7B84DD679789"
+    },
+    {
+        "Path":  "Assets\\Settings\\PC_Renderer.asset.meta",
+        "Hash":  "0F063B81DB6817DB7EC416712A575DD3E9960330E241DE389115F02ED5B3FFBD"
+    },
+    {
+        "Path":  "Assets\\Settings\\PC_RPAsset.asset",
+        "Hash":  "7B3794060807BB7989938DAE6B6B1102800334925A1436F8427FED7043ADBC6F"
+    },
+    {
+        "Path":  "Assets\\Settings\\PC_RPAsset.asset.meta",
+        "Hash":  "DD77AB3EB523C6E234943BC07250360E2AE934CED15C075A56168F2F7A3B5CE4"
+    },
+    {
+        "Path":  "Assets\\Settings\\SampleSceneProfile.asset",
+        "Hash":  "14F72F9E3356A20316FC7DEDB062CEF5160AFB00023C5500E65B72BEA640CDFC"
+    },
+    {
+        "Path":  "Assets\\Settings\\SampleSceneProfile.asset.meta",
+        "Hash":  "0B8036AF967C670DEB9C96912E7EFDA0895418AD3B2EEB4612B016A4D76A25C8"
+    },
+    {
+        "Path":  "Assets\\Settings\\UniversalRenderPipelineGlobalSettings.asset",
+        "Hash":  "3CCDE483A27A80ABE54AA32C4F75FA408E8C0AF994C6F54BF4760D274C4CEF7E"
+    },
+    {
+        "Path":  "Assets\\Settings\\UniversalRenderPipelineGlobalSettings.asset.meta",
+        "Hash":  "9F7756AF7860ADE1E88DB1B5CFFA7DFF8CC535F6AC08819A4E26164BF4018717"
+    }
+]

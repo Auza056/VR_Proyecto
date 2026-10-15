@@ -1,0 +1,19 @@
+{
+  "changed_existing_files": [
+    "Assets\\Scene.unity",
+    "Assets\\Hospital\\HospitalScene.dae.meta",
+    "Assets\\Hospital\\textures\\ElectricSystm_normal.jpg.meta",
+    "Assets\\Hospital\\textures\\Sofa_normal.jpg.meta",
+    "Assets\\Hospital\\textures\\Table_normal.jpg.meta",
+    "Assets\\Hospital\\textures\\TvSystm_normal.jpg.meta",
+    "Assets\\Hospital\\textures\\Tv_normal.jpg.meta",
+    "Assets\\Hospital\\textures\\Wall1_normal.jpg.meta",
+    "Assets\\Hospital\\textures\\Wall2_normal.jpg.meta",
+    "Assets\\Hospital\\textures\\Wall3_normal.jpg.meta",
+    "Assets\\Hospital\\textures\\Wall5_normal.jpg.meta",
+    "Assets\\Hospital\\textures\\WindowWall_normal.jpg.meta"
+  ],
+  "changed_outside_authorized_scope": [],
+  "original_scene_matches_open_scene_backup": true,
+  "input_action_references": {}
+}

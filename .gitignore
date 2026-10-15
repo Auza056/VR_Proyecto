@@ -6,3 +6,11 @@ Builds/
 Logs/
 UserSettings/
 .vs/
+*.csproj
+*.sln
+*.slnx
+*.suo
+*.user
+.idea/
+.env
+.env.*

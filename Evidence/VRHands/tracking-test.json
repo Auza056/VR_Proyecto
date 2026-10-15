@@ -1,0 +1,56 @@
+[
+  {
+    "phase": 0,
+    "result": {
+      "leftPositionDelta": 0.164340377,
+      "rightPositionDelta": 0.0,
+      "leftRotationDelta": 31.8310184,
+      "rightRotationDelta": 0.0,
+      "hands": [
+        {
+          "name": "ManoAnimada_Left",
+          "parent": "LeftHandController",
+          "positionError": 0.0,
+          "rotationError": 0.0,
+          "grip": 0.0,
+          "trigger": 0.0
+        },
+        {
+          "name": "ManoAnimada_Right",
+          "parent": "RightHandController",
+          "positionError": 0.0,
+          "rotationError": 0.0,
+          "grip": 0.0,
+          "trigger": 0.0
+        }
+      ]
+    }
+  },
+  {
+    "phase": 1,
+    "result": {
+      "leftPositionDelta": 0.182452023,
+      "rightPositionDelta": 0.09827491,
+      "leftRotationDelta": 39.3261757,
+      "rightRotationDelta": 38.8984032,
+      "hands": [
+        {
+          "name": "ManoAnimada_Left",
+          "parent": "LeftHandController",
+          "positionError": 0.0,
+          "rotationError": 0.0,
+          "grip": 0.0,
+          "trigger": 0.0
+        },
+        {
+          "name": "ManoAnimada_Right",
+          "parent": "RightHandController",
+          "positionError": 0.0,
+          "rotationError": 0.0,
+          "grip": 0.0,
+          "trigger": 0.0
+        }
+      ]
+    }
+  }
+]

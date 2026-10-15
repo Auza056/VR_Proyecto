@@ -1,0 +1,18 @@
+--- a/Assets/XRI Starter Kit/Assets/Official Unity Assets/XRI/Scripts/KeyLockSystem/Keychain.cs
++++ b/Assets/XRI Starter Kit/Assets/Official Unity Assets/XRI/Scripts/KeyLockSystem/Keychain.cs
+@@ -18 +18,2 @@
+-        HashSet<int> m_KeysHashSet = new HashSet<int>();
++        // Comparar las referencias evita la API GetInstanceID retirada en Unity 6000.5.
++        HashSet<Key> m_KeysHashSet = new HashSet<Key>();
+@@ -38 +39 @@
+-                    m_KeysHashSet.Add(key.GetInstanceID());
++                    m_KeysHashSet.Add(key);
+@@ -52 +53 @@
+-            m_KeysHashSet.Add(key.GetInstanceID());
++            m_KeysHashSet.Add(key);
+@@ -64 +65 @@
+-                m_KeysHashSet.Remove(key.GetInstanceID());
++                m_KeysHashSet.Remove(key);
+@@ -70 +71 @@
+-            return key != null && m_KeysHashSet.Contains(key.GetInstanceID());
++            return key != null && m_KeysHashSet.Contains(key);

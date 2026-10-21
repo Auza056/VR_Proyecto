@@ -12,6 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/HospitalRCP.unity
     guid: 08904ae6fdffa594ca3a6f6cf5ab8434
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: acd152faa977bfa4f9a3792c24e9b2cc, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 150c8c35c231a754295adfb0da2748b6, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: c27b352d01264364982ef5611803fab6, type: 2}

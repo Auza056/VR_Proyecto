@@ -14,3 +14,6 @@ UserSettings/
 .idea/
 .env
 .env.*
+
+# Registros locales de pruebas y evidencias
+Evidence/

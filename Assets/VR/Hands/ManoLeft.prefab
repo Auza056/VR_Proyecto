@@ -625,12 +625,12 @@ MonoBehaviour:
       m_Name: GripLeft
       m_Type: 0
       m_ExpectedControlType: Axis
-      m_Id: 90d97612-5b1f-43b1-ab4c-7d578cb1fcb9
+      m_Id: 9f87b64f-3e39-4ccf-b386-773843aea723
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: 466667fb-e359-401f-9313-d2c1b1d812b3
+        m_Id: ccef1a2b-5b15-4e0d-802e-dfde1ade003f
         m_Path: <XRController>{LeftHand}/grip
         m_Interactions: 
         m_Processors: 
@@ -646,12 +646,12 @@ MonoBehaviour:
       m_Name: TriggerLeft
       m_Type: 0
       m_ExpectedControlType: Axis
-      m_Id: 0f186f8c-ad60-438d-b877-c78cfd35bc45
+      m_Id: 662404da-3b78-4708-bdcd-8c96c8fa0096
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: 698a0efe-839d-48bd-9938-f293d760f008
+        m_Id: 6168cc7e-0ac3-4221-a8dc-3708c32186b0
         m_Path: <XRController>{LeftHand}/trigger
         m_Interactions: 
         m_Processors: 

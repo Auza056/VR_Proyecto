@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MainScene.unity
     guid: 87e7270cc79d4c849a192770385e4399
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/HospitalRCP.unity
     guid: 08904ae6fdffa594ca3a6f6cf5ab8434
+  - enabled: 1
+    path: Assets/Scenes/HospitalWard.unity
+    guid: be7754be673ce504f924325f7b1a1278
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: acd152faa977bfa4f9a3792c24e9b2cc, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

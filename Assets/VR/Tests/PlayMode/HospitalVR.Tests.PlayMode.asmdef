@@ -1,0 +1,5 @@
+﻿{
+  "name":"HospitalVR.Tests.PlayMode",
+  "references":["Unity.XR.Interaction.Toolkit","Unity.InputSystem","Unity.XR.CoreUtils","Unity.TextMeshPro"],
+  "optionalUnityReferences":["TestAssemblies"]
+}

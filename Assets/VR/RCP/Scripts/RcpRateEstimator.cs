@@ -38,6 +38,14 @@ namespace HospitalVR.RCP
             if (n < 3) return 0f;
             float last = times[(next - 1 + times.Length) % times.Length];
             if (now - last > maxAge) return 0f;
+            // No mezclar intervalos anteriores a una pausa o interrupción.
+            for (int i = 1; i < n; i++)
+            {
+                float newer = times[(next - i + times.Length) % times.Length];
+                float older = times[(next - i - 1 + times.Length) % times.Length];
+                if (newer - older > maxAge) { n = i; break; }
+            }
+            if (n < 3) return 0f;
             float first = times[(next - n + times.Length) % times.Length];
             float span = last - first;
             return span > 0f ? (n - 1) * 60f / span : 0f;

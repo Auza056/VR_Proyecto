@@ -45,7 +45,9 @@ namespace HospitalVR.RCP
         [Header("Colocación")]
         public bool requireBothHands = true;
         [Tooltip("Distancia máxima entre ambos puntos de contacto para considerarlas superpuestas.")]
-        [Min(0.05f)] public float maxHandSeparation = 0.2f;
+        [Min(0.05f)] public float maxHandSeparation = 0.22f;
+        [Min(0.02f)] public float maxHandHeightDifference = 0.16f;
+        [Min(0f)] public float individualZoneMargin = 0.04f;
 
         [Header("Filtrado")]
         [Tooltip("Frecuencia de corte del filtro paso bajo aplicado a la altura de las manos.")]
@@ -122,9 +124,7 @@ namespace HospitalVR.RCP
             if (leftOk && rightOk)
             {
                 point = (left + right) * 0.5f;
-                status = (left - right).sqrMagnitude > maxHandSeparation * maxHandSeparation
-                    ? RcpHandStatus.ManosSeparadas
-                    : RcpHandStatus.EnZona;
+                status = EvaluatePlacement(left, right);
             }
             else if (!requireBothHands && (leftOk || rightOk))
             {
@@ -159,6 +159,27 @@ namespace HospitalVR.RCP
             }
 
             UpdateCycle(now, dt);
+        }
+
+        public RcpHandStatus EvaluatePlacement(Vector3 left, Vector3 right)
+        {
+            Vector3 delta = left - right;
+            if (new Vector2(delta.x, delta.z).sqrMagnitude > maxHandSeparation * maxHandSeparation || Mathf.Abs(delta.y) > maxHandHeightDifference)
+                return RcpHandStatus.ManosSeparadas;
+            if (chest == null || !chest.IsInside((left + right) * .5f)) return RcpHandStatus.FueraDeZona;
+            // Cada mando debe estar cerca del tórax: el punto medio por sí solo no basta.
+            if (!IndividualInside(left) || !IndividualInside(right)) return RcpHandStatus.FueraDeZona;
+            return RcpHandStatus.EnZona;
+        }
+
+        bool IndividualInside(Vector3 hand) => Mathf.Abs(hand.x) <= chest.halfWidth + individualZoneMargin &&
+            Mathf.Abs(hand.z) <= chest.halfLength + individualZoneMargin && hand.y <= chest.maxHeightAbove && hand.y >= -chest.maxDepthBelow;
+
+        /// <summary>Al terminar, solo incluir retorno ya confirmado; excluir ventana incompleta.</summary>
+        public void CompletePendingReturn()
+        {
+            if (returnPending && returnPeak >= returnReference - fullReturnTolerance) FinishReturn();
+            returnPending = false;
         }
 
         void UpdateCycle(float now, float dt)
@@ -271,7 +292,7 @@ namespace HospitalVR.RCP
         {
             if (pose == null || pose.ignoreTrackingState) return true;
             var action = pose.trackingStateInput.action;
-            if (action == null || !action.enabled || action.controls.Count == 0) return true;
+            if (action == null || !action.enabled || action.controls.Count == 0) return false;
             // InputTrackingState.Position = 1
             return (action.ReadValue<int>() & 1) != 0;
         }

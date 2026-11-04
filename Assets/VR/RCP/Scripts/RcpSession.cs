@@ -22,6 +22,11 @@ namespace HospitalVR.RCP
         public int fullReturns;
         public float longestPause;
         public float handsOffTime;
+        public float trackingLostTime;
+        public int trackingInterruptions;
+        public bool challenge;
+        public bool aidsUsed;
+        public string stopReason;
     }
 
     /// <summary>
@@ -31,6 +36,8 @@ namespace HospitalVR.RCP
     public sealed class RcpSession : MonoBehaviour
     {
         public RcpCompressionDetector detector;
+        public bool challenge;
+        public bool aidsUsed;
 
         [Header("Flujo")]
         [Tooltip("Tiempo que las manos deben permanecer bien colocadas para empezar.")]
@@ -62,6 +69,8 @@ namespace HospitalVR.RCP
         RcpResults results;
         float startTime, holdTimer, lastCompressionTime, intervalSum;
         int intervalCount;
+        bool trackingWasLost;
+        bool continuousInterval;
 
         void Awake()
         {
@@ -77,6 +86,7 @@ namespace HospitalVR.RCP
 
         void OnDisable()
         {
+            if (State == RcpSessionState.Activa || State == RcpSessionState.Preparacion) Suspend("Estación desactivada");
             if (detector == null) return;
             detector.CompressionDetected -= OnCompression;
             detector.ReturnEvaluated -= OnReturn;
@@ -98,9 +108,12 @@ namespace HospitalVR.RCP
             if (State != RcpSessionState.Activa) return;
 
             float now = Time.time;
+            if (detector != null) detector.CompletePendingReturn();
             results.duration = now - startTime;
             results.compressions = Compressions;
-            results.meanRate = intervalCount > 0 && intervalSum > 0f ? intervalCount * 60f / intervalSum : 0f;
+            results.meanRate = intervalCount >= 2 && intervalSum > 0f ? intervalCount * 60f / intervalSum : 0f;
+            results.challenge = challenge;
+            results.aidsUsed = aidsUsed;
             results.longestPause = Mathf.Max(results.longestPause, now - lastCompressionTime);
             SetState(RcpSessionState.Finalizada);
         }
@@ -117,6 +130,8 @@ namespace HospitalVR.RCP
             Compressions = 0;
             intervalSum = 0f;
             intervalCount = 0;
+            continuousInterval = false;
+            trackingWasLost = false;
             holdTimer = 0f;
             rate.Clear();
             SetState(RcpSessionState.Preparacion);
@@ -139,7 +154,15 @@ namespace HospitalVR.RCP
             }
             else if (State == RcpSessionState.Activa)
             {
-                if (!handsReady) results.handsOffTime += Time.deltaTime;
+                bool trackingLost = detector.Status == RcpHandStatus.SinSeguimiento;
+                if (trackingLost)
+                {
+                    results.trackingLostTime += Time.deltaTime;
+                    if (!trackingWasLost) results.trackingInterruptions++;
+                    rate.Clear(); continuousInterval = false;
+                }
+                else if (!handsReady) results.handsOffTime += Time.deltaTime;
+                trackingWasLost = trackingLost;
                 if (sessionDuration > 0f && Time.time - startTime >= sessionDuration) Finish();
             }
         }
@@ -151,12 +174,13 @@ namespace HospitalVR.RCP
             float gap = compression.time - lastCompressionTime;
             if (gap > results.longestPause) results.longestPause = gap;
             // Solo los intervalos continuos (sin pausas largas) cuentan para el ritmo medio.
-            if (Compressions > 0 && gap <= rateMaxAge)
+            if (continuousInterval && Compressions > 0 && gap <= rateMaxAge)
             {
                 intervalSum += gap;
                 intervalCount++;
             }
             lastCompressionTime = compression.time;
+            continuousInterval = true;
             Compressions++;
             rate.Add(compression.time);
 
@@ -182,5 +206,19 @@ namespace HospitalVR.RCP
             if (detector != null) detector.enabled = next == RcpSessionState.Preparacion || next == RcpSessionState.Activa;
             StateChanged?.Invoke(next);
         }
+
+        public void Suspend(string reason)
+        {
+            if (State == RcpSessionState.Activa) { results.stopReason = reason; Finish(); }
+            else if (State == RcpSessionState.Preparacion) SetState(RcpSessionState.Inactiva);
+        }
+        public void Cancel()
+        {
+            if (State == RcpSessionState.Activa) Suspend("Intento cancelado");
+            SetState(RcpSessionState.Inactiva);
+            results = default; Compressions = 0; rate.Clear();
+        }
+        void OnApplicationFocus(bool focused) { if (!focused) Suspend("Se perdió el foco de la aplicación"); }
+        void OnApplicationPause(bool paused) { if (paused) Suspend("Aplicación en pausa"); }
     }
 }

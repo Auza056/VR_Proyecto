@@ -20,6 +20,10 @@ namespace HospitalVR.Learning
         public TrainingProgress Progress {get;}=new TrainingProgress();
         public readonly List<string> Actions=new List<string>();
         public RcpResults PracticeResults {get;private set;}
+        public RcpResults ChallengeResults {get;private set;}
+        public bool HasPracticeResults {get;private set;}
+        public bool HasChallengeResults {get;private set;}
+        public float ComparisonDuration {get;private set;}
         float lastAction;
         bool applying;
         void OnEnable() { if(session) session.StateChanged+=OnSession; }
@@ -55,6 +59,7 @@ namespace HospitalVR.Learning
         public void DirectPractice()
         {
             applying=true; session.Cancel(); applying=false;
+            ClearComparison();
             Progress.DirectPractice(); Configure(false); session.ResetPractice(); Record("Acceso directo a estación");
         }
         public void StartChallenge()
@@ -62,6 +67,7 @@ namespace HospitalVR.Learning
             if(Progress.Stage!=TrainingStage.Reto) { Record("Finaliza primero la práctica o usa el acceso directo"); return; }
             if(Progress.ChallengeRunning) return;
             applying=true; session.Cancel(); applying=false;
+            session.sessionDuration=ComparisonDuration;
             Progress.BeginChallenge(); Configure(true); session.ResetPractice(); Record("Reto iniciado sin ayudas");
         }
         void Configure(bool challenge)
@@ -70,10 +76,12 @@ namespace HospitalVR.Learning
             metronome.isOn=!challenge; rcpPanel.markerAid=!challenge; metronome.StopClock();
         }
         public void ToggleMarker() { rcpPanel.markerAid=!rcpPanel.markerAid; if(session.challenge && rcpPanel.markerAid) session.aidsUsed=true; Record("Marcador "+rcpPanel.markerAid); }
-        public void ResetCase() { ResetObjects(); Progress.Reset(); Actions.Clear(); PracticeResults=default; Record("Caso reiniciado"); }
+        public void ResetCase() { ResetObjects(); Progress.Reset(); Actions.Clear(); Record("Caso reiniciado"); }
+        void ClearComparison() { PracticeResults=default; ChallengeResults=default; HasPracticeResults=HasChallengeResults=false; ComparisonDuration=session.sessionDuration; }
         void ResetObjects()
         {
             applying=true; session.Cancel(); applying=false; Configure(false);
+            ClearComparison();
             if(manual) manual.ResetManual();
             foreach(var item in GetComponentsInChildren<TrainingRecoverable>(true)) item.Recover();
             var aed=GetComponentInChildren<TrainingAed>(true); if(aed) aed.ResetDevice();
@@ -82,11 +90,21 @@ namespace HospitalVR.Learning
         void OnSession(RcpSessionState state)
         {
             if(applying) return;
-            if(state==RcpSessionState.Preparacion && Progress.Stage!=TrainingStage.Practicar && Progress.Stage!=TrainingStage.Reto)
-            { Progress.DirectPractice(); Configure(false); }
+            if(state==RcpSessionState.Preparacion && !session.challenge) ComparisonDuration=session.sessionDuration;
+            if(state==RcpSessionState.Preparacion && !session.challenge && Progress.Stage!=TrainingStage.Practicar)
+            { Progress.DirectPractice(); ClearComparison(); Configure(false); }
             if(state!=RcpSessionState.Finalizada) return;
-            if(session.challenge) Progress.FinishChallenge();
-            else { PracticeResults=session.Results; Progress.FinishPractice(); }
+            if(session.challenge)
+            {
+                ChallengeResults=session.Results; HasChallengeResults=true;
+                if(string.IsNullOrEmpty(session.Results.stopReason)) Progress.FinishChallenge();
+                else Progress.CancelChallenge();
+            }
+            else
+            {
+                PracticeResults=session.Results; HasPracticeResults=true;
+                if(string.IsNullOrEmpty(session.Results.stopReason)) Progress.FinishPractice();
+            }
             Record("Sesión finalizada: "+session.Compressions+" compresiones detectadas");
         }
         public void Refresh()

@@ -184,17 +184,25 @@ namespace HospitalVR.Tests
         }
         IEnumerator Touch(string name)
         {
-            var b=UnityEngine.Object.FindObjectsByType(T("HospitalVR.RCP.RcpTouchButton")).Cast<Component>().First(c=>c.name==name);
+            var b=UnityEngine.Object.FindObjectsByType(T("HospitalVR.RCP.RcpTouchButton")).Cast<Component>().First(c=>c.name==name && (bool)Get(c,"interactable"));
             Vector3 p=b.transform.TransformPoint((Vector3)Get(b,"triggerCenter"));
             yield return Hold(.4f,p+Vector3.down,p+Vector3.down);
             yield return Hold(.4f,p+Vector3.down,p);
         }
         [UnityTest] public IEnumerator RecognitionAndPhoneUseSimulatorTouchVolumes()
         {
+            MenuAction("Home");
             foreach(string button in new[]{"Tocar_INICIAR CASO","Tocar_ENTORNO SEGURO","Tocar_COMPROBAR RESPUESTA","Tocar_OBSERVAR RESPIRACIÓN","Tocar_UBICACIÓN","Tocar_SITUACIÓN","Tocar_TESTIGO + DEA","Tocar_CONTINUAR"})
                 yield return Touch(button);
             Assert.That(Get(Get(flow,"Progress"),"Stage").ToString(),Is.EqualTo("Practicar"));
             Assert.That(Get(session,"State").ToString(),Is.EqualTo("Preparacion"));
+        }
+        [UnityTest] public IEnumerator MenuTabsUseTrackedHandContact()
+        {
+            MenuAction("Home");yield return Touch("Tocar_AJUSTES");
+            Assert.That(Get(Menu(),"Page"),Is.EqualTo(1));
+            yield return Touch("Tocar_RESULTADOS");Assert.That(Get(Menu(),"Page"),Is.EqualTo(2));
+            yield return Touch("Tocar_INICIO");Assert.That(Get(Menu(),"Page"),Is.EqualTo(0));
         }
         [UnityTest] public IEnumerator SlowAndFastSimulatorCyclesAreDistinguished()
         {
@@ -252,6 +260,37 @@ namespace HospitalVR.Tests
             rig.position+=Vector3.right*.2f;
             yield return Hold(.2f,chest.position+new Vector3(-.03f,.18f,0),chest.position+new Vector3(.03f,.23f,0));
             Assert.That(Get(session,"Compressions"),Is.EqualTo(0));
+        }
+        Component Menu()=>Find("HospitalVR.Presentation.TrainingMenu");
+        object Command(string name)=>Enum.Parse(T("HospitalVR.Presentation.MenuCommand"),name);
+        void MenuAction(string name)=>Call(Menu(),"Execute",Command(name));
+        [UnityTest] public IEnumerator MenuDurationIsLockedAndChallengeUsesPracticeDuration()
+        {
+            MenuAction("Settings");MenuAction("Duration30");
+            Assert.That(Get(session,"sessionDuration"),Is.EqualTo(30f));
+            yield return StartSession();MenuAction("Duration60");
+            Assert.That(Get(session,"sessionDuration"),Is.EqualTo(30f));
+            Call(session,"Finish");Assert.That(Get(flow,"HasPracticeResults"),Is.True);
+            Set(session,"sessionDuration",99f); Call(flow,"StartChallenge");
+            Assert.That(Get(session,"sessionDuration"),Is.EqualTo(30f));
+            Assert.That(Get(session,"challenge"),Is.True);
+        }
+        [UnityTest] public IEnumerator MenuResetRequiresConfirmationAndTabsRetainProgress()
+        {
+            MenuAction("Home");MenuAction("StartCase");MenuAction("Settings");MenuAction("Results");
+            Assert.That(Get(Get(flow,"Progress"),"Stage").ToString(),Is.EqualTo("Reconocer"));
+            MenuAction("Reset");Assert.That(Get(Get(flow,"Progress"),"Stage").ToString(),Is.EqualTo("Reconocer"));
+            MenuAction("Reset");Assert.That(Get(Get(flow,"Progress"),"Stage").ToString(),Is.EqualTo("Manual"));
+            Assert.That(Get(Menu(),"Page"),Is.EqualTo(0));yield return null;
+        }
+        [UnityTest] public IEnumerator InterruptedPracticeDoesNotUnlockChallengeAndComparisonIsVisible()
+        {
+            yield return StartSession();Call(session,"Suspend","Prueba de interrupción");
+            Assert.That(Get(Get(flow,"Progress"),"Stage").ToString(),Is.EqualTo("Practicar"));
+            Assert.That((bool)Call(Menu(),"CanExecute",Command("Challenge")),Is.False);
+            MenuAction("Results");Call(Menu(),"RefreshNow");
+            Assert.That(((TMPro.TMP_Text)Get(Menu(),"practiceText")).text,Does.Contain("Interrumpido"));
+            Assert.That(((TMPro.TMP_Text)Get(Menu(),"practiceText")).text,Does.Contain("Datos insuficientes"));
         }
     }
 }

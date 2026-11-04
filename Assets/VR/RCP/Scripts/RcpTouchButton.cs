@@ -19,6 +19,13 @@ namespace HospitalVR.RCP
         [Min(0.1f)] public float cooldown = 0.6f;
         public Transform pressVisual;
         public float pressDepth = 0.012f;
+        public Vector3 pressDirection = Vector3.down;
+        public bool interactable = true;
+        public Renderer feedbackRenderer;
+        public Color normalColor = new Color(.035f,.32f,.33f);
+        public Color hoverColor = new Color(.08f,.56f,.58f);
+        public Color disabledColor = new Color(.10f,.14f,.17f);
+        public Color pressedColor = new Color(.15f,.72f,.53f);
         public AudioSource feedbackSource;
         public AudioClip pressClip;
         public UnityEvent onPressed = new UnityEvent();
@@ -26,10 +33,14 @@ namespace HospitalVR.RCP
         bool armed = true;
         float nextAllowed;
         Vector3 visualRest;
+        MaterialPropertyBlock feedbackBlock;
+        float confirmedUntil;
+        public int PressCount { get; private set; }
 
         void Awake()
         {
             if (pressVisual != null) visualRest = pressVisual.localPosition;
+            feedbackBlock = new MaterialPropertyBlock();
         }
 
         void OnEnable()
@@ -45,13 +56,27 @@ namespace HospitalVR.RCP
             {
                 Transform hand = hands[i];
                 if (hand == null || !hand.gameObject.activeInHierarchy) continue;
+                var pose = hand.GetComponent<UnityEngine.InputSystem.XR.TrackedPoseDriver>();
+                if (pose != null && !pose.ignoreTrackingState)
+                {
+                    var tracking = pose.trackingStateInput.action;
+                    if (!pose.isActiveAndEnabled || tracking == null || !tracking.enabled || tracking.controls.Count == 0 || (tracking.ReadValue<int>() & 1) == 0) continue;
+                }
                 Vector3 local = Quaternion.Inverse(transform.rotation) * (hand.TransformPoint(contactOffset) - transform.position) - triggerCenter;
                 inside = Mathf.Abs(local.x) <= triggerSize.x * 0.5f
                       && Mathf.Abs(local.y) <= triggerSize.y * 0.5f
                       && Mathf.Abs(local.z) <= triggerSize.z * 0.5f;
             }
 
-            if (pressVisual != null) pressVisual.localPosition = inside ? visualRest - Vector3.up * pressDepth : visualRest;
+            if (pressVisual != null) pressVisual.localPosition = inside && interactable ? visualRest + pressDirection * pressDepth : visualRest;
+            if (feedbackRenderer != null)
+            {
+                Color color = !interactable ? disabledColor : Time.unscaledTime < confirmedUntil ? pressedColor : inside ? hoverColor : normalColor;
+                feedbackBlock.SetColor("_BaseColor", color);
+                feedbackBlock.SetColor("_Color", color);
+                feedbackRenderer.SetPropertyBlock(feedbackBlock);
+            }
+            if (!interactable) { armed = false; return; }
 
             if (!inside)
             {
@@ -68,6 +93,9 @@ namespace HospitalVR.RCP
         /// <summary>Activa el botón y reproduce su sonido.</summary>
         public void Press()
         {
+            if (!interactable || !isActiveAndEnabled) return;
+            PressCount++;
+            confirmedUntil = Time.unscaledTime + .22f;
             if (feedbackSource != null && pressClip != null) feedbackSource.PlayOneShot(pressClip);
             onPressed.Invoke();
         }

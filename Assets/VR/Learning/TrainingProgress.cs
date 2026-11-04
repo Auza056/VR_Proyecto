@@ -31,6 +31,7 @@
         public void DirectPractice() { Reset(); Stage=TrainingStage.Practicar; }
         public void FinishPractice() { if(Stage==TrainingStage.Practicar) Stage=TrainingStage.Reto; }
         public void BeginChallenge() { if(Stage==TrainingStage.Reto) ChallengeRunning=true; }
+        public void CancelChallenge() { ChallengeRunning=false; }
         public void FinishChallenge() { if(Stage==TrainingStage.Reto && ChallengeRunning) { Stage=TrainingStage.Resultados; ChallengeRunning=false; } }
         public bool FinishContrast()
         {

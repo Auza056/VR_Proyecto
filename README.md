@@ -61,3 +61,9 @@ Simulación educativa para público general. Mide movimiento de mandos: **no mid
 Referencia: [AHA 2025, Adult Basic Life Support](https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-basic-life-support/). Un instructor local debe revisar los textos, reconocimiento, llamada y guion del DEA, además del número local, antes de usar la demo en enseñanza.
 
 Consultar [evidencia, compilación, pendientes de Rift y guion de demo](docs/ENTREGA_XR.md) y [procedencia y permisos pendientes](docs/PROCEDENCIA.md). La documentación histórica `VERIFICACION_HOSPITALWARD.md` describe el estado anterior y se conserva.
+
+## Menús para presentación
+
+La versión actual del proyecto añade Inicio/Ajustes/Resultados, progreso de seis etapas, botones con estados y confirmación de reinicio. El jugador aparece frente al menú. Antes de practicar puedes seleccionar **30 s** para una demo breve o **60 s** para el recorrido habitual; el reto conserva la duración elegida. Se comparan ambos intentos en RESULTADOS. Los pasos de reconocimiento y llamada muestran LISTO al completarse.
+
+Consulta [preparación de la presentación](docs/PRESENTACION_CASI_FINAL.md). Esta revisión se entrega guardada y probada en el Editor, **sin generar un build nuevo**, por solicitud del usuario. El ejecutable anterior corresponde a la entrega previa.

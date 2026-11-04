@@ -13,6 +13,7 @@ namespace HospitalVR.RCP
         public RcpSession session;
         public RcpCompressionDetector detector;
         public RcpMetronome metronome;
+        public bool markerAid = true;
 
         [Header("Pantalla")]
         public TMP_Text stateText;
@@ -86,7 +87,7 @@ namespace HospitalVR.RCP
                     SetHint(HintForPlacement());
                     break;
                 case RcpSessionState.Activa:
-                    float rate = session.CurrentRate;
+                    float rate = session.challenge && !session.aidsUsed ? 0f : session.CurrentRate;
                     bool timed = session.sessionDuration > 0f;
                     if (rate > 0f)
                         metricsText.SetText(timed
@@ -126,7 +127,7 @@ namespace HospitalVR.RCP
                     if (playSound) Play(startClip);
                     break;
                 case RcpSessionState.Activa:
-                    stateText.text = "Sesión activa";
+                    stateText.text = session.challenge ? "Reto · sesión activa" : "Práctica guiada · sesión activa";
                     if (playSound) Play(startClip);
                     break;
                 case RcpSessionState.Finalizada:
@@ -139,24 +140,31 @@ namespace HospitalVR.RCP
 
         void ShowResults(RcpResults r)
         {
-            string ritmo = r.meanRate > 0f ? r.meanRate.ToString("0") + " /min" : "--";
-            string rango = r.ratedCompressions > 0 ? (100f * r.inTargetRate / r.ratedCompressions).ToString("0") + " %" : "--";
-            string retorno = r.evaluatedReturns > 0 ? (100f * r.fullReturns / r.evaluatedReturns).ToString("0") + " %" : "--";
+            string ritmo = r.meanRate > 0f ? r.meanRate.ToString("0") + " /min" : "Datos insuficientes";
+            string rango = r.ratedCompressions > 0 ? (100f * r.inTargetRate / r.ratedCompressions).ToString("0") + " % (" + r.inTargetRate + "/" + r.ratedCompressions + ")" : "Datos insuficientes";
+            string retorno = r.evaluatedReturns > 0 ? (100f * r.fullReturns / r.evaluatedReturns).ToString("0") + " % (" + r.fullReturns + "/" + r.evaluatedReturns + ")" : "Datos insuficientes";
             metricsText.text =
                 "Duración: " + r.duration.ToString("0") + " s   Compresiones: " + r.compressions +
                 "\nRitmo medio: " + ritmo + "   En 100-120/min: " + rango +
                 "\nRetorno completo del mando: " + retorno +
-                "\nPausa más larga: " + r.longestPause.ToString("0.0") + " s   Manos fuera: " + r.handsOffTime.ToString("0.0") + " s";
+                "\nPausa más larga: " + r.longestPause.ToString("0.0") + " s   Manos fuera: " + r.handsOffTime.ToString("0.0") + " s" +
+                "\nSeguimiento perdido: " + r.trackingLostTime.ToString("0.0") + " s (" + r.trackingInterruptions + " interrupciones)" +
+                "\n" + (r.challenge ? "Reto" : "Práctica") + " · Ayudas utilizadas: " + (r.aidsUsed ? "SÍ" : "NO") +
+                (string.IsNullOrEmpty(r.stopReason) ? "" : "\nInterrumpida: " + r.stopReason);
             hintText.text = SummaryHint(r);
         }
 
         static string SummaryHint(RcpResults r)
         {
+            if (r.trackingInterruptions > 0) return "Revisa el seguimiento de los Touch y repite: las interrupciones limitan estas métricas.";
             if (r.compressions == 0) return "No se detectaron compresiones. Toca REINICIAR para intentarlo de nuevo.";
+            if (r.meanRate <= 0f) return "Datos insuficientes. Practica varios ciclos seguidos con el metrónomo.";
+            if (r.longestPause > 10f) return "Revisa las pausas: intenta mantener la continuidad en el próximo intento.";
             if (r.meanRate > 0f && r.meanRate < 100f) return "Ritmo medio bajo: practica con el metrónomo (110/min). Toca REINICIAR.";
             if (r.meanRate > 120f) return "Ritmo medio alto: reduce la velocidad. Toca REINICIAR.";
             if (r.longestPause > 10f) return "Hubo pausas largas: minimiza las interrupciones. Toca REINICIAR.";
-            return "Buen trabajo. Recuerda dejar volver el pecho en cada ciclo. Toca REINICIAR.";
+            if (r.evaluatedReturns > 0 && r.fullReturns < r.evaluatedReturns * .8f) return "Practica el retorno del mando hasta la altura inicial antes del siguiente descenso.";
+            return "En el próximo intento, conserva el ritmo y practica el retorno del mando.";
         }
 
         int HintForPlacement()
@@ -197,6 +205,12 @@ namespace HospitalVR.RCP
 
         void SetHint(int id)
         {
+            if (session.challenge && !session.aidsUsed && id != 2 && id != 3)
+            {
+                hintId = -1;
+                hintText.text = "Reto en curso. Practica sin guía; consulta los resultados al terminar.";
+                return;
+            }
             if (id == hintId) return;
             hintId = id;
             hintText.text = Hints[id];
@@ -220,7 +234,7 @@ namespace HospitalVR.RCP
         void UpdateMarker()
         {
             if (chestMarker == null || detector == null) return;
-            bool visible = session.State == RcpSessionState.Preparacion || session.State == RcpSessionState.Activa;
+            bool visible = markerAid && (session.State == RcpSessionState.Preparacion || session.State == RcpSessionState.Activa);
             if (chestMarker.enabled != visible) chestMarker.enabled = visible;
             if (!visible) return;
 

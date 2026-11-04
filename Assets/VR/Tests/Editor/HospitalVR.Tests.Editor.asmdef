@@ -1,0 +1,5 @@
+{
+  "name": "HospitalVR.Tests.Editor",
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}

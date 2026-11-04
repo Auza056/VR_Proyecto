@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ac115dc983af94c9e68108f4d36712, type: 3}
+  m_Name: ContenidoEducativo
+  m_EditorClassIdentifier: Assembly-CSharp::HospitalVR.Learning.TrainingContent
+  scope: "Pr\xE1ctica educativa: registra movimiento de mandos. No mide fuerza, profundidad
+    real del t\xF3rax ni competencia cl\xEDnica."
+  instructorReview: "Un instructor local debe revisar reconocimiento, guion de ayuda
+    y DEA, n\xFAmero de emergencias, accesibilidad y adaptaci\xF3n al p\xFAblico
+    antes de usar en ense\xF1anza."
+  location: "Recepci\xF3n universitaria, acceso principal, planta baja"
+  contrastLocation: "Sala de descanso universitaria, escenario B, habitaci\xF3n 3"
+  emergencyLabel: "Emergencias \u2014 simulaci\xF3n"
+  pages:
+  - title: "1 \xB7 Controles VR"
+    instruction: "Prueba agarrar con GRIP y soltar al liberarlo. Acerca la otra mano
+      a PRUEBA para tocar un bot\xF3n.\nConsulta el manual en el atril o ll\xE9valo
+      contigo. RECUPERAR lo devuelve al soporte."
+    illustration: 0
+  - title: "2 \xB7 Reconocer la emergencia"
+    instruction: 'Observa que el entorno sea seguro. Habla al adulto y toca sus hombros.
+      Comprueba si respira normalmente.
+
+      Si no responde y no respira normalmente
+      o solo jadea, sospecha un paro y pide ayuda.'
+    illustration: 1
+  - title: "3 \xB7 Pedir ayuda"
+    instruction: "Activa emergencias. Indica ubicaci\xF3n y lo observado. Pide a
+      un testigo que traiga un DEA.\nEn el juego, completa el tel\xE9fono: ubicaci\xF3n,
+      situaci\xF3n y testigo. La llamada es simulada. Sigue las indicaciones del
+      operador real."
+    illustration: 2
+  - title: "4 \xB7 Colocar las manos"
+    instruction: "Coloca una mano sobre la otra en el centro del pecho, sobre la
+      mitad inferior del estern\xF3n.\nEn la estaci\xF3n: alinea los Touch junto
+      al marcador azul; brazos extendidos y hombros sobre las manos. La camilla es
+      solo para practicar mandos."
+    illustration: 3
+  - title: "5 \xB7 Seguir el ritmo"
+    instruction: "Inicia el descenso con cada pulso. Deja volver las manos entre
+      ciclos. Objetivo: 100\u2013120/min.\nPr\xE1ctica: 60 s; despu\xE9s reto sin
+      ayudas. Esta animaci\xF3n demuestra 110/min. El contador registra ciclos detectados."
+    illustration: 4
+  - title: "6 \xB7 DEA simulado"
+    instruction: "Enciende y sigue al DEA. Coloca ambos parches en el t\xF3rax descubierto
+      seg\xFAn el dibujo.\nNadie toca durante an\xE1lisis o descarga. Reanuda RCP
+      cuando lo indique.\nGuion simulado: revisar con instructor."
+    illustration: 5

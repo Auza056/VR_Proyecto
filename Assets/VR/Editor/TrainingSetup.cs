@@ -20,6 +20,7 @@ namespace HospitalVR.Editor
             var flow=root.gameObject.AddComponent<TrainingFlow>();
             var gate=root.gameObject.AddComponent<DesktopSimulatorGate>();
             gate.simulator=UnityEngine.Object.FindObjectsByType<UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation.XRDeviceSimulator>(FindObjectsInactive.Include).Single().gameObject;
+            gate.simulator.SetActive(false);
             var session=UnityEngine.Object.FindAnyObjectByType<RcpSession>();
             flow.session=session; flow.metronome=UnityEngine.Object.FindAnyObjectByType<RcpMetronome>(); flow.rcpPanel=session.GetComponent<RcpPanelView>();
             var rig=GameObject.Find("XR Origin (VR)").transform;

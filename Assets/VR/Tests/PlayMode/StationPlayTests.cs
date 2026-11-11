@@ -42,7 +42,11 @@ namespace HospitalVR.Tests
             session=Find("HospitalVR.RCP.RcpSession"); detector=Find("HospitalVR.RCP.RcpCompressionDetector"); metro=Find("HospitalVR.RCP.RcpMetronome");
             flow=Find("HospitalVR.Learning.TrainingFlow"); manual=Find("HospitalVR.Learning.TrainingManual");
             yield return null;
-            simulator=XRDeviceSimulator.instance; Assert.That(simulator,Is.Not.Null,"Simulador de escritorio inactivo");
+            // Estas pruebas solicitan el simulador explícitamente; la experiencia inicia sin él.
+            simulator=UnityEngine.Object.FindObjectsByType<XRDeviceSimulator>(FindObjectsInactive.Include,FindObjectsSortMode.None).FirstOrDefault();
+            Assert.That(simulator,Is.Not.Null,"No se encontró el simulador de escritorio");
+            simulator.gameObject.SetActive(true);
+            yield return null;
             typeof(XRDeviceSimulator).GetField("m_GripInput",Private).SetValue(simulator,false);
             left=(Transform)Get(detector,"leftHand"); right=(Transform)Get(detector,"rightHand"); chest=((Component)Get(detector,"chest")).transform;
             if(!initialClip) initialClip=(AudioClip)Get(metro,"clip");

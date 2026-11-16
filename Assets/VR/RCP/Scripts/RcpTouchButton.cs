@@ -28,6 +28,9 @@ namespace HospitalVR.RCP
         public Color pressedColor = new Color(.15f,.72f,.53f);
         public AudioSource feedbackSource;
         public AudioClip pressClip;
+        [Tooltip("Vibración breve en el Touch que pulsa el botón (0 = sin vibración).")]
+        [Range(0f, 1f)] public float hapticAmplitude = 0.35f;
+        public float hapticDuration = 0.04f;
         public UnityEvent onPressed = new UnityEvent();
 
         bool armed = true;
@@ -52,6 +55,7 @@ namespace HospitalVR.RCP
         void Update()
         {
             bool inside = false;
+            Transform touching = null;
             for (int i = 0; i < hands.Length && !inside; i++)
             {
                 Transform hand = hands[i];
@@ -66,15 +70,20 @@ namespace HospitalVR.RCP
                 inside = Mathf.Abs(local.x) <= triggerSize.x * 0.5f
                       && Mathf.Abs(local.y) <= triggerSize.y * 0.5f
                       && Mathf.Abs(local.z) <= triggerSize.z * 0.5f;
+                if (inside) touching = hand;
             }
 
             if (pressVisual != null) pressVisual.localPosition = inside && interactable ? visualRest + pressDirection * pressDepth : visualRest;
             if (feedbackRenderer != null)
             {
                 Color color = !interactable ? disabledColor : Time.unscaledTime < confirmedUntil ? pressedColor : inside ? hoverColor : normalColor;
+                if (feedbackRenderer is SpriteRenderer sprite) { sprite.color = color; }
+                else
+                {
                 feedbackBlock.SetColor("_BaseColor", color);
                 feedbackBlock.SetColor("_Color", color);
                 feedbackRenderer.SetPropertyBlock(feedbackBlock);
+                }
             }
             if (!interactable) { armed = false; return; }
 
@@ -88,6 +97,7 @@ namespace HospitalVR.RCP
             armed = false;
             nextAllowed = Time.time + cooldown;
             Press();
+            Buzz(touching);
         }
 
         /// <summary>Activa el botón y reproduce su sonido.</summary>
@@ -98,6 +108,13 @@ namespace HospitalVR.RCP
             confirmedUntil = Time.unscaledTime + .22f;
             if (feedbackSource != null && pressClip != null) feedbackSource.PlayOneShot(pressClip);
             onPressed.Invoke();
+        }
+
+        void Buzz(Transform hand)
+        {
+            if (hand == null || hapticAmplitude <= 0f) return;
+            var player = hand.GetComponentInParent<UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics.HapticImpulsePlayer>();
+            if (player != null) player.SendHapticImpulse(hapticAmplitude, hapticDuration);
         }
 
         void OnDrawGizmosSelected()

@@ -54,6 +54,8 @@ namespace HospitalVR.RCP
         [Min(1f)] public float smoothingCutoffHz = 10f;
         [Tooltip("Velocidad máxima plausible de la mano respecto al tórax. Saltos mayores se tratan como datos inválidos.")]
         [Min(0.5f)] public float maxHandSpeed = 3f;
+        [Tooltip("Pérdidas de seguimiento más breves se ignoran conservando la última pose válida (oclusión momentánea de los sensores del Rift al superponer las manos).")]
+        [Min(0f)] public float trackingGraceTime = 0.2f;
 
         [Header("Ciclo de compresión (desplazamiento del mando)")]
         [Tooltip("Descenso mínimo desde el punto alto para iniciar una compresión.")]
@@ -99,12 +101,14 @@ namespace HospitalVR.RCP
 
         bool leftHasPrev, rightHasPrev;
         Vector3 leftPrev, rightPrev;
+        float leftGoodTime = -10f, rightGoodTime = -10f;
 
         void OnDisable()
         {
             ResetCycle();
             hasRigSample = false;
             leftHasPrev = rightHasPrev = false;
+            leftGoodTime = rightGoodTime = -10f;
             Status = RcpHandStatus.SinSeguimiento;
         }
 
@@ -116,8 +120,8 @@ namespace HospitalVR.RCP
 
             UpdateRigMotion(now, dt);
 
-            bool leftOk = TrySample(leftHand, leftPose, dt, ref leftPrev, ref leftHasPrev, out Vector3 left);
-            bool rightOk = TrySample(rightHand, rightPose, dt, ref rightPrev, ref rightHasPrev, out Vector3 right);
+            bool leftOk = TrySample(leftHand, leftPose, now, dt, ref leftPrev, ref leftHasPrev, ref leftGoodTime, out Vector3 left);
+            bool rightOk = TrySample(rightHand, rightPose, now, dt, ref rightPrev, ref rightHasPrev, ref rightGoodTime, out Vector3 right);
 
             RcpHandStatus status;
             Vector3 point = Vector3.zero;
@@ -265,18 +269,16 @@ namespace HospitalVR.RCP
             hasRigSample = true;
         }
 
-        bool TrySample(Transform hand, TrackedPoseDriver pose, float dt, ref Vector3 previous, ref bool hasPrevious, out Vector3 local)
+        bool TrySample(Transform hand, TrackedPoseDriver pose, float now, float dt, ref Vector3 previous, ref bool hasPrevious, ref float goodTime, out Vector3 local)
         {
             local = Vector3.zero;
-            if (hand == null || !hand.gameObject.activeInHierarchy || !HasPositionTracking(pose))
+            bool active = hand != null && hand.gameObject.activeInHierarchy;
+            Vector3 world = active ? hand.TransformPoint(contactOffset) : Vector3.zero;
+            bool valid = active && HasPositionTracking(pose) && !float.IsNaN(world.x) && !float.IsNaN(world.y) && !float.IsNaN(world.z);
+            if (!valid)
             {
-                hasPrevious = false;
-                return false;
-            }
-
-            Vector3 world = hand.TransformPoint(contactOffset);
-            if (float.IsNaN(world.x) || float.IsNaN(world.y) || float.IsNaN(world.z))
-            {
+                // Oclusión breve: mantener la última pose válida para no cortar el ciclo.
+                if (hasPrevious && now - goodTime <= trackingGraceTime) { local = previous; return true; }
                 hasPrevious = false;
                 return false;
             }
@@ -285,6 +287,7 @@ namespace HospitalVR.RCP
             bool plausible = !hasPrevious || (local - previous).magnitude / dt <= maxHandSpeed;
             previous = local;
             hasPrevious = true;
+            if (plausible) goodTime = now;
             return plausible;
         }
 

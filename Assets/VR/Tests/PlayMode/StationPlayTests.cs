@@ -285,7 +285,8 @@ namespace HospitalVR.Tests
             Assert.That(Get(Get(flow,"Progress"),"Stage").ToString(),Is.EqualTo("Reconocer"));
             MenuAction("Reset");Assert.That(Get(Get(flow,"Progress"),"Stage").ToString(),Is.EqualTo("Reconocer"));
             MenuAction("Reset");Assert.That(Get(Get(flow,"Progress"),"Stage").ToString(),Is.EqualTo("Manual"));
-            Assert.That(Get(Menu(),"Page"),Is.EqualTo(0));yield return null;
+            // Tras confirmar el reinicio se vuelve a la portada para el siguiente participante.
+            Assert.That(Get(Menu(),"Page"),Is.EqualTo(3));yield return null;
         }
         [UnityTest] public IEnumerator InterruptedPracticeDoesNotUnlockChallengeAndComparisonIsVisible()
         {

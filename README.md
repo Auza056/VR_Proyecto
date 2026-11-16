@@ -1,4 +1,4 @@
-﻿# Simulador educativo VR de reconocimiento y ritmo de RCP
+# Simulador educativo VR de reconocimiento y ritmo de RCP
 
 Escena principal: **`Assets/Scenes/HospitalWard.unity`**, única escena habilitada para compilar. Abrir con **Unity 6000.5.11f1**. Windows PC VR, Oculus Rift y mandos Touch; URP 17.5.0, XR Interaction Toolkit 3.5.1, Input System 1.20.0 y OpenXR. Las escenas HospitalRCP y MainScene se conservan como antecedentes.
 
@@ -6,7 +6,7 @@ Escena principal: **`Assets/Scenes/HospitalWard.unity`**, única escena habilita
 
 1. Conecta el Rift y ambos Touch y comprueba su seguimiento en el software de escritorio del visor. Usa el runtime OpenXR compatible con tu instalación de Rift.
 2. Abre HospitalWard o el ejecutable Windows. El proyecto conserva OpenXRLoader y el perfil Oculus Touch de Windows. No se cambió de proveedor ni se actualizaron paquetes.
-3. Si se detecta un visor XR activo, el simulador de escritorio permanece desactivado. Sin visor, `DesktopSimulatorGate` activa el XR Device Simulator existente, sin crear otro rig.
+3. Si se detecta un visor XR activo, el simulador de escritorio permanece desactivado. Sin visor, a los 3 s `DesktopSimulatorGate` activa el XR Device Simulator existente, sin crear otro rig.
 4. Ajusta posición, alcance y altura antes de practicar. La vibración parte de .25 y 45 ms, pendiente de validación de comodidad con Touch físicos.
 
 ## Controles
@@ -67,3 +67,17 @@ Consultar [evidencia, compilación, pendientes de Rift y guion de demo](docs/ENT
 La versión actual del proyecto añade Inicio/Ajustes/Resultados, progreso de seis etapas, botones con estados y confirmación de reinicio. El jugador aparece frente al menú. Antes de practicar puedes seleccionar **30 s** para una demo breve o **60 s** para el recorrido habitual; el reto conserva la duración elegida. Se comparan ambos intentos en RESULTADOS. Los pasos de reconocimiento y llamada muestran LISTO al completarse.
 
 Consulta [preparación de la presentación](docs/PRESENTACION_CASI_FINAL.md). Esta revisión se entrega guardada y probada en el Editor, **sin generar un build nuevo**, por solicitud del usuario. El ejecutable anterior corresponde a la entrega previa.
+
+## Rediseño de menús y corrección de altura (noviembre 2026)
+
+- **Altura corregida.** El `Camera Offset` del XR Origin estaba fijo en 1.65 m. Como el Rift ya informa la altura real desde el suelo, el jugador quedaba ~1.65 m más alto y los mandos también, así que para llegar al tórax había que agacharse hasta que los sensores perdían los Touch. `PlayerHeightCalibrator` (en el XR Origin) solicita espacio de suelo con visor real, mide la cabeza al iniciar y quita ese desplazamiento. Con el simulador de escritorio no cambia nada.
+- **Ajuste manual de altura.** BAJAR / ALTURA REAL / SUBIR en la portada y en Ajustes, en pasos de 5 cm (se guarda entre sesiones). Juega de pie; usa el ajuste solo si la camilla queda muy baja o muy alta.
+- **Seguimiento más tolerante en RCP.** Si un Touch se pierde menos de 0.2 s (por ejemplo, al superponer las manos frente a los sensores), el detector conserva la última pose válida en lugar de cortar la compresión (`RcpCompressionDetector.trackingGraceTime`).
+- **Menú principal.** Al pulsar Play aparece una portada con COMENZAR RECORRIDO, PRÁCTICA LIBRE, CÓMO SE JUEGA, la altura del jugador y SALIR. Después, un único panel con las pestañas MENÚ · RECORRIDO · AJUSTES · RESULTADOS y el progreso de seis etapas.
+- **Menos interfaces.** Se eliminaron el letrero «Pulso objetivo» (el pulso ahora está en la esquina de la pantalla RCP) y los carteles flotantes de orientación. Su información está en la portada y en «Cómo se juega».
+- **Nuevo estilo visual.** Paneles y botones con esquinas redondeadas, borde turquesa, sombra, tipografía Inter y estados de color (listo, encima, pulsado en ámbar, deshabilitado). El shader `HospitalVR/Panel UI` es opaco y escribe profundidad, así que los textos lejanos no se ven a través de los menús (compatible con XR single-pass).
+- **Reproducible.** `Hospital VR > Rediseñar menús y altura` (`MenuRedesignSetup.Apply()`) reconstruye esta presentación sobre HospitalWard. Ejecútalo después de `Preparar presentación`, nunca antes, porque este lo sobrescribiría.
+- **Recentrado:** al detectar el visor, el jugador aparece frente al menú. CENTRAR VISTA en la portada y en Ajustes. REINICIAR RECORRIDO también recentra y restablece la altura.
+- **Vibración** breve en el Touch al tocar cualquier botón. **Simulador automático:** sin visor, a los 3 s se activa el XR Device Simulator.
+- **Calidad VR:** MSAA 4x, HDR desactivado y plano cercano de la cámara a 0.05 m. Tipografía Inter en todos los paneles.
+- Verificado en el Editor: Edit Mode 21/21 y Play Mode 16/16, sin errores ni advertencias en consola. Build de Windows generado con estos cambios y publicado en [Releases](https://github.com/Auza056/VR_Proyecto/releases) (`HospitalVR_RCP_Windows.zip`). **Falta probar con Rift y Touch físicos.** Checklist y guion en [docs/PRESENTACION_FINAL.md](docs/PRESENTACION_FINAL.md).

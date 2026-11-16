@@ -1,10 +1,12 @@
-﻿using HospitalVR.RCP;
+using HospitalVR.RCP;
 using TMPro;
 using UnityEngine;
 
 namespace HospitalVR.Presentation
 {
-    public enum MenuCommand { Home, Settings, Results, StartCase, Practice, Challenge, Reset, RecoverManual, Finish, Duration30, Duration60, Audio, Haptics, Visual, Hand, IntensityDown, IntensityUp, VolumeDown, VolumeUp, Metronome, Marker }
+    public enum MenuCommand { Home, Settings, Results, StartCase, Practice, Challenge, Reset, RecoverManual, Finish, Duration30, Duration60, Audio, Haptics, Visual, Hand, IntensityDown, IntensityUp, VolumeDown, VolumeUp, Metronome, Marker,
+        // Añadidos al final para conservar los valores serializados.
+        MainMenu, BeginTour, HowTo, HeightUp, HeightDown, HeightReset, Quit, Recenter }
     public sealed class TrainingMenuButton : MonoBehaviour
     {
         public TrainingMenu menu;

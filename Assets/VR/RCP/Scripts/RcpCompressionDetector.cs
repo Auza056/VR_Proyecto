@@ -1,6 +1,8 @@
 using System;
+using HospitalVR.Interaction;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
+using UnityEngine.XR;
 
 namespace HospitalVR.RCP
 {
@@ -272,32 +274,27 @@ namespace HospitalVR.RCP
         bool TrySample(Transform hand, TrackedPoseDriver pose, float now, float dt, ref Vector3 previous, ref bool hasPrevious, ref float goodTime, out Vector3 local)
         {
             local = Vector3.zero;
-            bool active = hand != null && hand.gameObject.activeInHierarchy;
-            Vector3 world = active ? hand.TransformPoint(contactOffset) : Vector3.zero;
-            bool valid = active && HasPositionTracking(pose) && !float.IsNaN(world.x) && !float.IsNaN(world.y) && !float.IsNaN(world.z);
-            if (!valid)
+            if (hand && hand.gameObject.activeInHierarchy && TrackedPoseStatus.HasTracking(pose, InputTrackingState.Position))
             {
-                // Oclusión breve: mantener la última pose válida para no cortar el ciclo.
-                if (hasPrevious && now - goodTime <= trackingGraceTime) { local = previous; return true; }
-                hasPrevious = false;
-                return false;
+                Vector3 sample = chest.ToLocal(hand.TransformPoint(contactOffset));
+                if (float.IsFinite(sample.x) && float.IsFinite(sample.y) && float.IsFinite(sample.z)
+                    && (!hasPrevious || (sample - previous).magnitude <= maxHandSpeed * Mathf.Max(dt, now - goodTime)))
+                {
+                    local = previous = sample;
+                    goodTime = now;
+                    hasPrevious = true;
+                    return true;
+                }
             }
 
-            local = chest.ToLocal(world);
-            bool plausible = !hasPrevious || (local - previous).magnitude / dt <= maxHandSpeed;
-            previous = local;
-            hasPrevious = true;
-            if (plausible) goodTime = now;
-            return plausible;
-        }
-
-        static bool HasPositionTracking(TrackedPoseDriver pose)
-        {
-            if (pose == null || pose.ignoreTrackingState) return true;
-            var action = pose.trackingStateInput.action;
-            if (action == null || !action.enabled || action.controls.Count == 0) return false;
-            // InputTrackingState.Position = 1
-            return (action.ReadValue<int>() & 1) != 0;
+            // Un salto aislado o una oclusión breve no reemplazan la última pose fiable.
+            if (hasPrevious && now - goodTime <= trackingGraceTime)
+            {
+                local = previous;
+                return true;
+            }
+            hasPrevious = false;
+            return false;
         }
     }
 }

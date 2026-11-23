@@ -11,6 +11,7 @@ using UnityEditor;
 using UnityEditor.Events;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using MenuCommand = HospitalVR.Presentation.MenuCommand;
 
 namespace HospitalVR.Editor
@@ -23,6 +24,8 @@ namespace HospitalVR.Editor
     {
         const string UiFolder = "Assets/VR/Presentation/UI";
         const string FontPath = "Assets/TextMesh Pro/Resources/Fonts & Materials/Inter-Regular SDF.asset";
+        const string MenuPrefabPath = "Assets/VR/Presentation/MenuAprendizaje.prefab";
+        static readonly Vector3 MenuPosition = new Vector3(.10f, 1.63f, -1.22f);
 
         // Paleta
         public static readonly Color Bg = new Color(.043f, .078f, .110f, .97f);
@@ -58,6 +61,7 @@ namespace HospitalVR.Editor
             clickClip = Object.FindObjectsByType<RcpTouchButton>(FindObjectsInactive.Include).Select(b => b.pressClip).FirstOrDefault(c => c);
 
             var calibrator = SetupHeight(flow);
+            SetupControllerPointers();
             BuildMenu(flow, calibrator);
             StationPulse(flow);
             Declutter(flow);
@@ -71,7 +75,7 @@ namespace HospitalVR.Editor
             EditorUtility.SetDirty(rig);
             flow.Refresh(); menu.RefreshNow();
             EditorUtility.SetDirty(flow); EditorUtility.SetDirty(menu);
-            PrefabUtility.SaveAsPrefabAsset(menu.gameObject, "Assets/VR/Presentation/MenuAprendizaje.prefab");
+            PrefabUtility.SaveAsPrefabAsset(menu.gameObject, MenuPrefabPath);
             EditorSceneManager.MarkSceneDirty(flow.gameObject.scene);
             EditorSceneManager.SaveOpenScenes(); AssetDatabase.SaveAssets();
             return "Portada, menú unificado, calibración de altura y estilo redondeado aplicados.";
@@ -97,6 +101,63 @@ namespace HospitalVR.Editor
             if (!solidMat) { solidMat = new Material(Shader.Find("HospitalVR/Panel UI")); AssetDatabase.CreateAsset(solidMat, solidPath); }
             solidMat.enableInstancing = true;
             font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(FontPath);
+        }
+
+        [MenuItem("Hospital VR/Actualizar portada y punteros")]
+        public static void UpdateMenuControls()
+        {
+            RcpFinalSetup.Guard();
+            menu = Object.FindAnyObjectByType<TrainingMenu>();
+            var flow = menu.flow;
+            hands = new[] { flow.session.detector.leftHand, flow.session.detector.rightHand };
+            var previous = menu.mainPage.GetComponentInChildren<RcpTouchButton>(true);
+            clickSource = previous.feedbackSource;
+            clickClip = previous.pressClip;
+            circleSprite = AssetDatabase.LoadAssetAtPath<Sprite>(UiFolder + "/Circulo.png");
+            buttonSprite = AssetDatabase.LoadAssetAtPath<Sprite>(UiFolder + "/BotonRedondeado.png");
+            spriteMat = AssetDatabase.LoadAssetAtPath<Material>(UiFolder + "/SpriteUI.mat");
+            solidMat = AssetDatabase.LoadAssetAtPath<Material>(UiFolder + "/PanelSolido.mat");
+            font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(FontPath);
+
+            var previousPage = menu.mainPage;
+            commands = menu.buttons.Where(b => b && !b.transform.IsChildOf(previousPage.transform)).ToList();
+            Object.DestroyImmediate(previousPage);
+            menu.transform.position = MenuPosition;
+            BuildMainPage(menu.transform);
+            menu.buttons = commands.ToArray();
+            menu.startOnMainPage = true;
+            menu.RefreshNow();
+            menu.mainPage.SetActive(true);
+            menu.homePage.SetActive(false);
+            menu.chrome.SetActive(false);
+            menu.subtitle.text = "";
+
+            if (menu.helpPage.transform.Find("Controles").TryGetComponent<TMP_Text>(out var help))
+            {
+                help.text = ControlsHelp;
+                EditorUtility.SetDirty(help);
+            }
+            SetupControllerPointers();
+            EditorUtility.SetDirty(menu);
+            PrefabUtility.SaveAsPrefabAsset(menu.gameObject, MenuPrefabPath);
+            EditorSceneManager.SaveScene(menu.gameObject.scene);
+        }
+
+        static void SetupControllerPointers()
+        {
+            var material = AssetDatabase.LoadAssetAtPath<Material>("Assets/VR/RCP/Materials/RCP_MarcadorTorax.mat");
+            for (int i = 0; i < hands.Length; i++)
+            {
+                var hand = hands[i];
+                if (!hand.TryGetComponent<ControllerButtonPointer>(out var pointer))
+                    pointer = hand.gameObject.AddComponent<ControllerButtonPointer>();
+                var serialized = new SerializedObject(pointer);
+                serialized.FindProperty("leftHand").boolValue = i == 0;
+                serialized.FindProperty("grabInteractor").objectReferenceValue = hand.GetComponentInChildren<XRDirectInteractor>(true);
+                serialized.FindProperty("beamMaterial").objectReferenceValue = material;
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+                PrefabUtility.RecordPrefabInstancePropertyModifications(pointer);
+            }
         }
 
         static Sprite MakeSprite(string name, int size, int radius, int feather, float ppu, int border)
@@ -215,6 +276,23 @@ namespace HospitalVR.Editor
         }
 
         // ---------- Menú ----------
+        const string ControlsHelp = "<b>Stick izquierdo</b>  moverse\n<b>Stick derecho</b>  girar\n<b>Grip</b>  agarrar y soltar objetos\n<b>Gatillo</b>  apunta a un botón y pulsa\n<b>Contacto</b>  toca y retira la mano\n\nJuega de pie y frente a los sensores.";
+
+        static void BuildMainPage(Transform panel)
+        {
+            var main = Group(panel, "Portada"); menu.mainPage = main.gameObject;
+            var icon = Group(main, "Icono"); icon.localPosition = new Vector3(0, .38f, -.004f);
+            Plate("Aro", icon, Vector3.zero, new Vector2(.16f, .16f), new Color(.18f, .77f, .71f, .18f), circleSprite, -2);
+            Plate("CruzV", icon, new Vector3(0, 0, -.001f), new Vector2(.035f, .10f), Accent, buttonSprite, -1);
+            Plate("CruzH", icon, new Vector3(0, 0, -.001f), new Vector2(.10f, .035f), Accent, buttonSprite, -1);
+            Label(main, "Titulo", new Vector3(0, .23f, -.006f), "Simulador de RCP", .76f, new Vector2(1.12f, .12f), bold: true);
+            var size = new Vector2(.58f, .105f);
+            Cmd(main, MenuCommand.BeginTour, "JUGAR", new Vector3(0, .065f, 0), size, .39f);
+            Cmd(main, MenuCommand.Settings, "OPCIONES", new Vector3(0, -.075f, 0), size, .39f);
+            Cmd(main, MenuCommand.Quit, "SALIR", new Vector3(0, -.215f, 0), size, .39f);
+            Label(main, "Controles", new Vector3(0, -.39f, -.006f), "Apunta y pulsa el gatillo, o toca con la mano.", .29f, new Vector2(1.05f, .07f), TextMuted);
+        }
+
         static void BuildMenu(TrainingFlow flow, PlayerHeightCalibrator calibrator)
         {
             var p = flow.transform.Find("Recorrido");
@@ -224,7 +302,7 @@ namespace HospitalVR.Editor
             menu.flow = flow; menu.height = calibrator; menu.startOnMainPage = true;
             menu.readyColor = Ready; menu.mutedColor = Muted; menu.currentColor = Accent; menu.primaryColor = Primary;
             commands = new List<TrainingMenuButton>();
-            p.position = new Vector3(-.43f, 1.40f, -1.22f); p.rotation = Quaternion.Euler(0, 90, 0);
+            p.position = MenuPosition; p.rotation = Quaternion.Euler(0, 90, 0);
 
             const float W = 1.30f, H = 1.22f;
             Plate("Sombra", p, new Vector3(0, -.01f, .01f), new Vector2(W + .16f, H + .16f), new Color(0, 0, 0, .8f), shadowSprite, -4);
@@ -235,26 +313,7 @@ namespace HospitalVR.Editor
             menu.subtitle = Label(p, "Seccion", new Vector3(.33f, .555f, -.006f), "", .28f, new Vector2(.55f, .06f), Accent, TextAlignmentOptions.Right, true);
             Label(p, "Alcance", new Vector3(0, -.585f, -.006f), "Simulación educativa · No mide fuerza, profundidad real ni competencia clínica.", .19f, new Vector2(1.2f, .035f), TextMuted);
 
-            // Portada
-            var main = Group(p, "Portada"); menu.mainPage = main.gameObject;
-            var icon = Group(main, "Icono"); icon.localPosition = new Vector3(0, .38f, -.004f);
-            Plate("Aro", icon, Vector3.zero, new Vector2(.16f, .16f), new Color(.18f, .77f, .71f, .18f), circleSprite, -2);
-            Plate("CruzV", icon, new Vector3(0, 0, -.001f), new Vector2(.035f, .10f), Accent, buttonSprite, -1);
-            Plate("CruzH", icon, new Vector3(0, 0, -.001f), new Vector2(.10f, .035f), Accent, buttonSprite, -1);
-            Label(main, "Titulo", new Vector3(0, .245f, -.006f), "APRENDE A ACTUAR", .95f, new Vector2(1.2f, .12f), Color.white, bold: true);
-            Label(main, "Lema", new Vector3(0, .16f, -.006f), "Reconoce · Pide ayuda · Practica el ritmo de la RCP", .32f, new Vector2(1.15f, .06f), TextMuted);
-            Cmd(main, MenuCommand.BeginTour, "COMENZAR RECORRIDO", new Vector3(0, .045f, 0), new Vector2(.66f, .105f), .40f);
-            Cmd(main, MenuCommand.Practice, "PRÁCTICA LIBRE", new Vector3(-.19f, -.085f, 0), new Vector2(.36f, .09f), .32f, "Tocar_PRÁCTICA LIBRE");
-            Cmd(main, MenuCommand.HowTo, "CÓMO SE JUEGA", new Vector3(.19f, -.085f, 0), new Vector2(.36f, .09f), .32f, "Tocar_CÓMO SE JUEGA (portada)");
-            Plate("Separador", main, new Vector3(0, -.175f, -.002f), new Vector2(.9f, .004f), new Color(1, 1, 1, .08f), buttonSprite, -2);
-            Label(main, "AlturaTitulo", new Vector3(0, -.215f, -.006f), "ALTURA DEL JUGADOR", .24f, new Vector2(.8f, .04f), TextMuted, bold: true);
-            menu.heightText = Label(main, "AlturaEstado", new Vector3(0, -.255f, -.006f), "", .26f, new Vector2(.9f, .04f), Color.white);
-            Cmd(main, MenuCommand.HeightDown, "BAJAR", new Vector3(-.30f, -.32f, 0), new Vector2(.26f, .075f), .28f, "Tocar_BAJAR (portada)");
-            Cmd(main, MenuCommand.HeightReset, "ALTURA REAL", new Vector3(0, -.32f, 0), new Vector2(.26f, .075f), .28f, "Tocar_ALTURA REAL (portada)");
-            Cmd(main, MenuCommand.HeightUp, "SUBIR", new Vector3(.30f, -.32f, 0), new Vector2(.26f, .075f), .28f, "Tocar_SUBIR (portada)");
-            Label(main, "AlturaAyuda", new Vector3(0, -.39f, -.006f), "Juega de pie. Si la camilla queda muy baja o muy alta, ajusta aquí.", .22f, new Vector2(1.1f, .04f), TextMuted);
-            Cmd(main, MenuCommand.Recenter, "CENTRAR VISTA", new Vector3(-.15f, -.485f, 0), new Vector2(.28f, .07f), .26f, "Tocar_CENTRAR VISTA (portada)");
-            Cmd(main, MenuCommand.Quit, "SALIR", new Vector3(.15f, -.485f, 0), new Vector2(.28f, .07f), .26f);
+            BuildMainPage(p);
 
             // Marco común (pestañas, progreso, pie)
             var chrome = Group(p, "Marco"); menu.chrome = chrome.gameObject;
@@ -323,7 +382,7 @@ namespace HospitalVR.Editor
             Plate("TarjetaRcp", help, new Vector3(.295f, -.04f, -.002f), new Vector2(.57f, .52f), Surface, buttonSprite, -2);
             Label(help, "TituloControles", new Vector3(-.295f, .185f, -.006f), "CONTROLES", .28f, new Vector2(.52f, .05f), Accent, bold: true);
             Label(help, "Controles", new Vector3(-.295f, -.06f, -.006f),
-                "<b>Stick izquierdo</b>  moverse\n<b>Stick derecho</b>  girar\n<b>Grip</b>  agarrar y soltar objetos\n<b>Botones</b>  tócalos con la mano, sin gatillo\n<b>Retira la mano</b> para volver a pulsar\n\nJuega <b>de pie</b> y frente a los sensores.",
+                ControlsHelp,
                 .31f, new Vector2(.52f, .42f), align: TextAlignmentOptions.TopLeft);
             Label(help, "TituloRcp", new Vector3(.295f, .185f, -.006f), "COMPRESIONES", .28f, new Vector2(.52f, .05f), Accent, bold: true);
             Label(help, "Rcp", new Vector3(.295f, -.06f, -.006f),

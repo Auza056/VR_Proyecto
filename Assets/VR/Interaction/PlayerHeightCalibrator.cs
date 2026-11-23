@@ -1,13 +1,12 @@
 using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.XR;
 
 namespace HospitalVR.Interaction
 {
     /// <summary>
-    /// Corrige la altura del jugador con visor real. El Rift ya informa la altura desde el suelo, por lo que
-    /// un desplazamiento fijo del Camera Offset duplicaba la estatura y obligaba a agacharse hasta perder
-    /// el seguimiento de los Touch. Con simulador de escritorio solo aplica el ajuste manual del usuario.
+    /// Configura la altura del XR Origin según el espacio de seguimiento del visor.
     /// </summary>
     [DefaultExecutionOrder(100)]
     public sealed class PlayerHeightCalibrator : MonoBehaviour
@@ -32,7 +31,9 @@ namespace HospitalVR.Interaction
 
         float baseOffset, desktopOffset, trackedSince = -1f;
         Vector3 spawnPosition, spawnForward = Vector3.forward;
-        bool calibrated;
+        bool calibrated, requestedFloor;
+        TrackingOriginModeFlags calibratedMode;
+        TrackedPoseDriver headPose;
         Transform Offset => origin && origin.CameraFloorOffsetObject ? origin.CameraFloorOffsetObject.transform : null;
 
         void Reset() => origin = GetComponent<XROrigin>();
@@ -43,12 +44,7 @@ namespace HospitalVR.Interaction
             try { UserAdjust = Mathf.Clamp(PlayerPrefs.GetFloat(PrefKey, 0f), -maxAdjust, maxAdjust); } catch { UserAdjust = 0f; }
             if (Offset) desktopOffset = Offset.localPosition.y;
             if (origin) { spawnPosition = origin.transform.position; spawnForward = origin.transform.forward; }
-        }
-
-        void Start()
-        {
-            // Con visor se solicita espacio de suelo: la altura del jugador es la real.
-            if (HeadsetActive && origin) origin.RequestedTrackingOriginMode = XROrigin.TrackingOriginMode.Floor;
+            if (origin && origin.Camera) headPose = origin.Camera.GetComponent<TrackedPoseDriver>();
         }
 
         void LateUpdate()
@@ -57,21 +53,50 @@ namespace HospitalVR.Interaction
             if (!HeadsetActive)
             {
                 trackedSince = -1f; calibrated = false;
-                if (!Mathf.Approximately(UserAdjust, 0f)) SetOffset(desktopOffset + UserAdjust);
+                requestedFloor = false;
+                SetOffset(desktopOffset + UserAdjust);
+                return;
+            }
+            if (!requestedFloor)
+            {
+                requestedFloor = true;
+                origin.RequestedTrackingOriginMode = XROrigin.TrackingOriginMode.Floor;
+            }
+
+            if (origin.CurrentTrackingOriginMode == TrackingOriginModeFlags.Floor) SetOffset(UserAdjust);
+            if (!HasTrackedHead())
+            {
+                trackedSince = -1f;
                 return;
             }
             if (trackedSince < 0f) trackedSince = Time.unscaledTime;
-            // Esperar a que el runtime entregue la primera pose estable antes de medir.
-            if (!calibrated && Time.unscaledTime - trackedSince > 0.75f) { Recalibrate(); if (recenterOnStart) Recenter(); }
+            if (!calibrated && Time.unscaledTime - trackedSince > .35f)
+            {
+                Recalibrate();
+                if (recenterOnStart) Recenter();
+            }
+            else if (calibrated && calibratedMode != origin.CurrentTrackingOriginMode)
+            {
+                Recalibrate();
+            }
             if (calibrated) SetOffset(baseOffset + UserAdjust);
         }
 
-        /// <summary>Vuelve a medir la cabeza: con seguimiento de suelo no añade desplazamiento.</summary>
+        bool HasTrackedHead() => headPose &&
+            TrackedPoseStatus.HasTracking(headPose, InputTrackingState.Position | InputTrackingState.Rotation);
+
+        /// <summary>Vuelve a medir la altura a partir de una pose válida.</summary>
         public void Recalibrate()
         {
-            if (!origin || !origin.Camera) return;
+            if (!origin || !origin.Camera || !HasTrackedHead()) return;
+            calibratedMode = origin.CurrentTrackingOriginMode;
             float head = origin.Camera.transform.localPosition.y;
-            baseOffset = head > floorTrackingThreshold ? 0f : Mathf.Max(0f, fallbackEyeHeight - head);
+            baseOffset = calibratedMode switch
+            {
+                TrackingOriginModeFlags.Floor => 0f,
+                TrackingOriginModeFlags.Device => fallbackEyeHeight,
+                _ => head > floorTrackingThreshold ? 0f : Mathf.Max(0f, fallbackEyeHeight - head)
+            };
             calibrated = true;
         }
 
@@ -81,7 +106,7 @@ namespace HospitalVR.Interaction
         /// </summary>
         public void Recenter()
         {
-            if (!origin || !origin.Camera) return;
+            if (!origin || !origin.Camera || (HeadsetActive && !HasTrackedHead())) return;
             origin.MatchOriginUpCameraForward(Vector3.up, spawnForward);
             var cam = origin.Camera.transform.position;
             origin.MoveCameraToWorldLocation(new Vector3(spawnPosition.x, cam.y, spawnPosition.z));

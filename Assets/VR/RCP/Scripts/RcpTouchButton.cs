@@ -1,14 +1,19 @@
+using System.Collections.Generic;
+using HospitalVR.Interaction;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem.XR;
+using UnityEngine.XR;
 
 namespace HospitalVR.RCP
 {
     /// <summary>
-    /// Botón físico que se activa al introducir la mano (posición del mando) en su volumen.
-    /// No requiere pulsar botones del mando ni interactores. Para volver a activarse, la mano debe salir.
+    /// Botón físico que admite contacto del mando y selección con el puntero.
     /// </summary>
     public sealed class RcpTouchButton : MonoBehaviour
     {
+        internal static readonly HashSet<RcpTouchButton> ActiveButtons = new HashSet<RcpTouchButton>();
+
         [Tooltip("Mandos ya seguidos por el jugador.")]
         public Transform[] hands = new Transform[2];
         [Tooltip("Punto de contacto respecto al mando, en su espacio local.")]
@@ -38,6 +43,7 @@ namespace HospitalVR.RCP
         Vector3 visualRest;
         MaterialPropertyBlock feedbackBlock;
         float confirmedUntil;
+        int pointerHoverCount;
         public int PressCount { get; private set; }
 
         void Awake()
@@ -48,9 +54,12 @@ namespace HospitalVR.RCP
 
         void OnEnable()
         {
+            ActiveButtons.Add(this);
             armed = false; // si la mano ya está dentro al aparecer, no se activa hasta que salga
-            nextAllowed = Time.time + 0.3f;
+            nextAllowed = Time.unscaledTime + 0.3f;
         }
+
+        void OnDisable() => ActiveButtons.Remove(this);
 
         void Update()
         {
@@ -60,29 +69,21 @@ namespace HospitalVR.RCP
             {
                 Transform hand = hands[i];
                 if (hand == null || !hand.gameObject.activeInHierarchy) continue;
-                var pose = hand.GetComponent<UnityEngine.InputSystem.XR.TrackedPoseDriver>();
-                if (pose != null && !pose.ignoreTrackingState)
-                {
-                    var tracking = pose.trackingStateInput.action;
-                    if (!pose.isActiveAndEnabled || tracking == null || !tracking.enabled || tracking.controls.Count == 0 || (tracking.ReadValue<int>() & 1) == 0) continue;
-                }
                 Vector3 local = Quaternion.Inverse(transform.rotation) * (hand.TransformPoint(contactOffset) - transform.position) - triggerCenter;
-                inside = Mathf.Abs(local.x) <= triggerSize.x * 0.5f
-                      && Mathf.Abs(local.y) <= triggerSize.y * 0.5f
-                      && Mathf.Abs(local.z) <= triggerSize.z * 0.5f;
+                inside = IsInside(local) && TrackedPoseStatus.HasTracking(hand.GetComponent<TrackedPoseDriver>(), InputTrackingState.Position);
                 if (inside) touching = hand;
             }
 
             if (pressVisual != null) pressVisual.localPosition = inside && interactable ? visualRest + pressDirection * pressDepth : visualRest;
             if (feedbackRenderer != null)
             {
-                Color color = !interactable ? disabledColor : Time.unscaledTime < confirmedUntil ? pressedColor : inside ? hoverColor : normalColor;
+                Color color = !interactable ? disabledColor : Time.unscaledTime < confirmedUntil ? pressedColor : inside || pointerHoverCount > 0 ? hoverColor : normalColor;
                 if (feedbackRenderer is SpriteRenderer sprite) { sprite.color = color; }
                 else
                 {
-                feedbackBlock.SetColor("_BaseColor", color);
-                feedbackBlock.SetColor("_Color", color);
-                feedbackRenderer.SetPropertyBlock(feedbackBlock);
+                    feedbackBlock.SetColor("_BaseColor", color);
+                    feedbackBlock.SetColor("_Color", color);
+                    feedbackRenderer.SetPropertyBlock(feedbackBlock);
                 }
             }
             if (!interactable) { armed = false; return; }
@@ -92,12 +93,37 @@ namespace HospitalVR.RCP
                 armed = true;
                 return;
             }
-            if (!armed || Time.time < nextAllowed) return;
+            if (armed) PressFromHand(touching);
+        }
 
+        bool IsInside(Vector3 local) => Mathf.Abs(local.x) <= triggerSize.x * 0.5f
+            && Mathf.Abs(local.y) <= triggerSize.y * 0.5f
+            && Mathf.Abs(local.z) <= triggerSize.z * 0.5f;
+
+        internal bool TryAim(Ray ray, Transform hand, out float distance)
+        {
+            distance = 0f;
+            if (System.Array.IndexOf(hands, hand) < 0) return false;
+            var normal = transform.rotation * (triggerCenter == Vector3.zero ? -pressDirection : triggerCenter.normalized);
+            if (Vector3.Dot(normal, ray.direction) >= -0.001f) return false;
+
+            var center = transform.position + transform.rotation * triggerCenter;
+            var plane = new Plane(normal, center);
+            return plane.Raycast(ray, out distance)
+                && IsInside(Quaternion.Inverse(transform.rotation) * (ray.GetPoint(distance) - center));
+        }
+
+        internal void SetPointerHover(bool hovering) => pointerHoverCount += hovering ? 1 : -1;
+
+        internal void PressFromPointer(Transform hand) => PressFromHand(hand);
+
+        void PressFromHand(Transform hand)
+        {
+            if (!interactable || !isActiveAndEnabled || Time.unscaledTime < nextAllowed) return;
             armed = false;
-            nextAllowed = Time.time + cooldown;
+            nextAllowed = Time.unscaledTime + cooldown;
             Press();
-            Buzz(touching);
+            Buzz(hand);
         }
 
         /// <summary>Activa el botón y reproduce su sonido.</summary>

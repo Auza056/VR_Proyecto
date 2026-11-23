@@ -13,7 +13,7 @@ Escena principal: **`Assets/Scenes/HospitalWard.unity`**, única escena habilita
 
 - Se mantienen desplazamiento continuo con el stick izquierdo y giro por pasos con el derecho, según las acciones existentes del rig.
 - **Grip:** agarrar manual, DEA o parches. Liberar grip para soltar.
-- **Tocar botones:** introducir una mano en su superficie; no requiere gatillo. Retirar la mano para volver a pulsar. El botón confirma con movimiento visual.
+- **Pulsar botones:** apunta y pulsa el gatillo de cualquiera de los Touch, o toca el botón con la mano. Suelta el gatillo o retira la mano antes de volver a pulsar.
 - Manual: Anterior / Siguiente / PRUEBA. El atril permite leer sin sostenerlo. RECUPERAR lo devuelve cuando está suelto; también se recupera si cae o queda lejos.
 - Consola RCP original: INICIAR / FINALIZAR / REINICIAR, interruptor general del metrónomo y volumen.
 - Panel adicional: audio, vibración y señal visual separados; intensidad −/+ y selección de Touch izquierdo, derecho o ambos. El pulso marca el **inicio objetivo del descenso**; el contador registra ciclos detectados.
@@ -71,13 +71,13 @@ Consulta [preparación de la presentación](docs/PRESENTACION_CASI_FINAL.md). Es
 ## Rediseño de menús y corrección de altura (noviembre 2026)
 
 - **Altura corregida.** El `Camera Offset` del XR Origin estaba fijo en 1.65 m. Como el Rift ya informa la altura real desde el suelo, el jugador quedaba ~1.65 m más alto y los mandos también, así que para llegar al tórax había que agacharse hasta que los sensores perdían los Touch. `PlayerHeightCalibrator` (en el XR Origin) solicita espacio de suelo con visor real, mide la cabeza al iniciar y quita ese desplazamiento. Con el simulador de escritorio no cambia nada.
-- **Ajuste manual de altura.** BAJAR / ALTURA REAL / SUBIR en la portada y en Ajustes, en pasos de 5 cm (se guarda entre sesiones). Juega de pie; usa el ajuste solo si la camilla queda muy baja o muy alta.
+- **Ajuste manual de altura.** ALTURA − / ALTURA REAL / ALTURA + en Opciones, en pasos de 5 cm (se guarda entre sesiones). La camilla y el paciente de práctica están 12 cm más altos y el tórax queda más cerca del lado de acceso.
 - **Seguimiento más tolerante en RCP.** Si un Touch se pierde menos de 0.2 s (por ejemplo, al superponer las manos frente a los sensores), el detector conserva la última pose válida en lugar de cortar la compresión (`RcpCompressionDetector.trackingGraceTime`).
-- **Menú principal.** Al pulsar Play aparece una portada con COMENZAR RECORRIDO, PRÁCTICA LIBRE, CÓMO SE JUEGA, la altura del jugador y SALIR. Después, un único panel con las pestañas MENÚ · RECORRIDO · AJUSTES · RESULTADOS y el progreso de seis etapas.
+- **Menú principal.** Al pulsar Play aparece la portada JUGAR · OPCIONES · SALIR. JUGAR abre el recorrido, incluida la práctica directa. OPCIONES abre Ajustes, donde también está CÓMO SE JUEGA.
 - **Menos interfaces.** Se eliminaron el letrero «Pulso objetivo» (el pulso ahora está en la esquina de la pantalla RCP) y los carteles flotantes de orientación. Su información está en la portada y en «Cómo se juega».
 - **Nuevo estilo visual.** Paneles y botones con esquinas redondeadas, borde turquesa, sombra, tipografía Inter y estados de color (listo, encima, pulsado en ámbar, deshabilitado). El shader `HospitalVR/Panel UI` es opaco y escribe profundidad, así que los textos lejanos no se ven a través de los menús (compatible con XR single-pass).
 - **Reproducible.** `Hospital VR > Rediseñar menús y altura` (`MenuRedesignSetup.Apply()`) reconstruye esta presentación sobre HospitalWard. Ejecútalo después de `Preparar presentación`, nunca antes, porque este lo sobrescribiría.
-- **Recentrado:** al detectar el visor, el jugador aparece frente al menú. CENTRAR VISTA en la portada y en Ajustes. REINICIAR RECORRIDO también recentra y restablece la altura.
+- **Recentrado:** al detectar el visor, el jugador aparece frente al menú. CENTRAR VISTA está en Ajustes. REINICIAR RECORRIDO también recentra y restablece la altura.
 - **Vibración** breve en el Touch al tocar cualquier botón. **Simulador automático:** sin visor, a los 3 s se activa el XR Device Simulator.
 - **Calidad VR:** MSAA 4x, HDR desactivado y plano cercano de la cámara a 0.05 m. Tipografía Inter en todos los paneles.
-- Verificado en el Editor: Edit Mode 21/21 y Play Mode 16/16, sin errores ni advertencias en consola. Build de Windows generado con estos cambios y publicado en [Releases](https://github.com/Auza056/VR_Proyecto/releases) (`HospitalVR_RCP_Windows.zip`). **Falta probar con Rift y Touch físicos.** Checklist y guion en [docs/PRESENTACION_FINAL.md](docs/PRESENTACION_FINAL.md).
+- La versión [v1.1-presentacion](https://github.com/Auza056/VR_Proyecto/releases/tag/v1.1-presentacion) incluye la portada y la estación actualizadas. Descarga `HospitalVR_RCP_Windows.zip` desde el release y descomprime toda la carpeta antes de abrir `VR_Proyecto.exe`. **Falta probar con Rift y Touch físicos.** Checklist y guion en [docs/PRESENTACION_FINAL.md](docs/PRESENTACION_FINAL.md).

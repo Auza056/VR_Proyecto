@@ -14,17 +14,28 @@ namespace HospitalVR.Tests
     public class StationPlayTests
     {
         const BindingFlags Private=BindingFlags.Instance|BindingFlags.NonPublic;
+        const string HeightPreference = "HospitalVR.AjusteAltura";
         Component session,detector,metro,flow,manual;
         XRDeviceSimulator simulator;
         Transform left,right,chest;
         AudioClip initialClip;
+        bool hadHeightPreference;
+        float previousHeightAdjust;
         UnityEngine.InputSystem.InputSettings.BackgroundBehavior previousBackground;
         [OneTimeSetUp] public void PreserveInputEnvironment()
         {
             previousBackground=UnityEngine.InputSystem.InputSystem.settings.backgroundBehavior;
             UnityEngine.InputSystem.InputSystem.settings.backgroundBehavior=UnityEngine.InputSystem.InputSettings.BackgroundBehavior.IgnoreFocus;
+            hadHeightPreference = PlayerPrefs.HasKey(HeightPreference);
+            previousHeightAdjust = PlayerPrefs.GetFloat(HeightPreference);
         }
-        [OneTimeTearDown] public void RestoreInputEnvironment() => UnityEngine.InputSystem.InputSystem.settings.backgroundBehavior=previousBackground;
+        [OneTimeTearDown] public void RestoreInputEnvironment()
+        {
+            UnityEngine.InputSystem.InputSystem.settings.backgroundBehavior = previousBackground;
+            if (hadHeightPreference) PlayerPrefs.SetFloat(HeightPreference, previousHeightAdjust);
+            else PlayerPrefs.DeleteKey(HeightPreference);
+            PlayerPrefs.Save();
+        }
         static Type T(string n)=>AppDomain.CurrentDomain.GetAssemblies().Select(a=>a.GetType(n)).First(t=>t!=null);
         static Component Find(string n)=>UnityEngine.Object.FindAnyObjectByType(T(n)) as Component;
         static object Get(object o,string n)=>o.GetType().GetProperty(n)?.GetValue(o)??o.GetType().GetField(n).GetValue(o);
@@ -48,6 +59,7 @@ namespace HospitalVR.Tests
             simulator.gameObject.SetActive(true);
             yield return null;
             typeof(XRDeviceSimulator).GetField("m_GripInput",Private).SetValue(simulator,false);
+            SetTrigger(false);
             left=(Transform)Get(detector,"leftHand"); right=(Transform)Get(detector,"rightHand"); chest=((Component)Get(detector,"chest")).transform;
             if(!initialClip) initialClip=(AudioClip)Get(metro,"clip");
             Call(flow,"ResetCase");
@@ -81,16 +93,18 @@ namespace HospitalVR.Tests
                 yield return null;
             }
         }
-        void Pose(string side,Vector3 world,float grip=0)
+        void Pose(string side,Vector3 world,float grip=0,Quaternion? localRotation=null,bool trigger=false)
         {
             var field=typeof(XRDeviceSimulator).GetField("m_"+side+"ControllerState",Private);
             var state=(XRSimulatedControllerState)field.GetValue(simulator);
             if(side=="Right") typeof(XRDeviceSimulator).GetField("m_GripInput",Private).SetValue(simulator,grip>.5f);
             var hand=side=="Left"?left:right;
-            state.devicePosition=hand.parent.InverseTransformPoint(world); state.deviceRotation=Quaternion.identity;
+            state.devicePosition=hand.parent.InverseTransformPoint(world); state.deviceRotation=localRotation ?? Quaternion.identity;
             state.grip=grip; state.WithButton(ControllerButton.GripButton,grip>.5f);
+            state.trigger=trigger ? 1f : 0f; state.WithButton(ControllerButton.TriggerButton,trigger);
             field.SetValue(simulator,state);
         }
+        void SetTrigger(bool pressed) => typeof(XRDeviceSimulator).GetField("m_TriggerInput",Private).SetValue(simulator,pressed);
         IEnumerator Hold(float seconds,Vector3 l,Vector3 r)
         {
             float end=Time.time+seconds;
@@ -207,6 +221,49 @@ namespace HospitalVR.Tests
             Assert.That(Get(Menu(),"Page"),Is.EqualTo(1));
             yield return Touch("Tocar_RESULTADOS");Assert.That(Get(Menu(),"Page"),Is.EqualTo(2));
             yield return Touch("Tocar_INICIO");Assert.That(Get(Menu(),"Page"),Is.EqualTo(0));
+        }
+        IEnumerator AimAndClick(string side, string name)
+        {
+            var button = GameObject.Find(name).transform;
+            var hand = side == "Left" ? left : right;
+            var other = side == "Left" ? "Right" : "Left";
+            Vector3 position = button.position - button.forward * .65f;
+            Quaternion rotation = Quaternion.Inverse(hand.parent.rotation) * Quaternion.LookRotation(button.forward);
+            float until = Time.time + .8f;
+            while (Time.time < until)
+            {
+                bool pressed = Time.time > until - .4f;
+                Pose(other, position + Vector3.down * .4f);
+                Pose(side, position, localRotation: rotation, trigger: pressed);
+                SetTrigger(pressed);
+                yield return null;
+            }
+            Pose(side, position, localRotation: rotation);
+            SetTrigger(false);
+            yield return null;
+        }
+        [UnityTest] public IEnumerator BothTouchTriggersCanUseMainMenuAndSettingsAtDistance()
+        {
+            MenuAction("MainMenu");
+            yield return AimAndClick("Right", "Tocar_OPCIONES");
+            Assert.That(Get(Menu(),"Page"),Is.EqualTo(1));
+            yield return AimAndClick("Left", "Tocar_AUDIO");
+            Assert.That((bool)Get(metro,"audioOn"),Is.False);
+            yield return AimAndClick("Right", "Tocar_MENÚ");
+            Assert.That(Get(Menu(),"Page"),Is.EqualTo(3));
+            yield return AimAndClick("Left", "Tocar_JUGAR");
+            Assert.That(Get(Menu(),"Page"),Is.EqualTo(0));
+        }
+        [UnityTest] public IEnumerator RaisedChestCanBeReachedFromTheBedside()
+        {
+            Assert.That(chest.position.y, Is.GreaterThan(.82f));
+            var rig = (Transform)Get(detector,"rigRoot");
+            var capsule = rig.GetComponent<CharacterController>();
+            rig.position = new Vector3(-.72f, rig.position.y, chest.position.z);
+            Physics.SyncTransforms();
+            for (int i = 0; i < 18; i++) capsule.Move(new Vector3(.028f, 0f, 0f));
+            Assert.That(chest.position.x - capsule.bounds.center.x, Is.InRange(.20f,.45f));
+            yield return StartSession();
         }
         [UnityTest] public IEnumerator SlowAndFastSimulatorCyclesAreDistinguished()
         {

@@ -15,7 +15,7 @@ namespace HospitalVR.Presentation
         [Tooltip("Pestañas, progreso y botones inferiores: se ocultan en la portada.")]
         public GameObject chrome;
         public PlayerHeightCalibrator height;
-        public TMP_Text subtitle, settingsText, practiceText, challengeText, comparisonText, messageText, heightText;
+        public TMP_Text subtitle, settingsText, practiceText, challengeText, comparisonText, messageText;
         public TMP_Text[] steps;
         public TrainingMenuButton[] buttons;
         public Color readyColor=new Color(.11f,.36f,.42f), mutedColor=new Color(.09f,.14f,.19f);
@@ -66,17 +66,17 @@ namespace HospitalVR.Presentation
                     Application.Quit();
 #endif
                     break;
-                case MenuCommand.Settings: Page=1; break;
-                case MenuCommand.Results: Page=2; break;
+                case MenuCommand.Settings: Page=SettingsPage; break;
+                case MenuCommand.Results: Page=ResultsPage; break;
                 case MenuCommand.StartCase: flow.BeginCase(); notice="Ve a la recepción del pasillo. Empieza por observar el entorno."; break;
                 case MenuCommand.Practice: flow.DirectPractice(); Page=HomePage; notice="Colócate junto a la camilla, frente a la zona azul del tórax."; break;
                 case MenuCommand.Challenge: flow.StartChallenge(); notice="Reto preparado. Mantén las manos en la zona para empezar."; break;
                 case MenuCommand.Reset:
-                    if(Time.unscaledTime>resetUntil || resetUntil==0) {resetUntil=Time.unscaledTime+4f; notice="Retira la mano y vuelve a tocar REINICIAR para confirmar.";}
+                    if(Time.unscaledTime>resetUntil || resetUntil==0) {resetUntil=Time.unscaledTime+4f; notice="Vuelve a pulsar REINICIAR para confirmar.";}
                     else {flow.ResetCase(); resetUntil=0; Page=MainPage; if(height){height.ResetAdjust(); height.Recenter();} notice="Todo listo para un nuevo participante.";}
                     break;
                 case MenuCommand.RecoverManual: flow.manual.Recover(); notice="El manual vuelve al atril al estar suelto."; break;
-                case MenuCommand.Finish: Session.Finish(); Page=2; break;
+                case MenuCommand.Finish: Session.Finish(); Page=ResultsPage; break;
                 case MenuCommand.Duration30: Session.sessionDuration=30; notice="Demo breve: práctica y reto de 30 s cada uno."; break;
                 case MenuCommand.Duration60: Session.sessionDuration=60; notice="Práctica y reto de 60 s cada uno."; break;
                 case MenuCommand.Audio: flow.metronome.ToggleAudio(); break;
@@ -113,7 +113,6 @@ namespace HospitalVR.Presentation
             if(helpPage) helpPage.SetActive(Page==HelpPage);
             if(chrome) chrome.SetActive(Page!=MainPage);
             if(subtitle) subtitle.text=Page switch {HomePage=>"RECORRIDO", SettingsPage=>"AJUSTES", ResultsPage=>"RESULTADOS", HelpPage=>"CÓMO SE JUEGA", _=>""};
-            if(heightText) heightText.text=height ? height.Describe() : "";
             if(settingsText) settingsText.text=$"<color=#9FB3C8>Intento</color> {Session.sessionDuration:0} s   <color=#9FB3C8>Ritmo</color> {flow.metronome.beatsPerMinute:0}/min   <color=#9FB3C8>Volumen</color> {flow.metronome.volume:P0}   <color=#9FB3C8>Vibración</color> {flow.metronome.hapticAmplitude:P0} · {flow.metronome.hapticHand}"+(height?"\n<color=#9FB3C8>"+height.Describe()+"</color>":"");
             if(practiceText) practiceText.text=flow.HasPracticeResults ? Report(flow.PracticeResults) : "Tu práctica aparecerá aquí.\n\nEmpieza desde RECORRIDO o completa el caso de recepción.";
             if(challengeText) challengeText.text=flow.HasChallengeResults ? Report(flow.ChallengeResults) : "Tu reto aparecerá aquí.\n\nTermina la práctica para desbloquearlo. Se inicia sin ayudas.";
@@ -123,7 +122,7 @@ namespace HospitalVR.Presentation
                     : "Compara ritmo, pausas y retorno. Las interrupciones o ayudas cambian las condiciones del intento."
                 : "Los porcentajes usan solo muestras evaluables. No se calcula una calificación clínica.";
             if(resetUntil>0 && Time.unscaledTime>resetUntil) {resetUntil=0;notice=null;}
-            if(messageText) messageText.text=notice ?? (CanChangeDuration ? "Toca con una mano. Los botones oscuros aún no están disponibles." : "Duración fijada para comparar intentos. Reinicia el recorrido para cambiarla.");
+            if(messageText) messageText.text=notice ?? (CanChangeDuration ? "Apunta y pulsa el gatillo, o toca con la mano." : "Duración fijada para comparar intentos. Reinicia el recorrido para cambiarla.");
             int stage=(int)flow.Progress.Stage;
             for(int i=0;i<steps.Length;i++) if(steps[i])
             {

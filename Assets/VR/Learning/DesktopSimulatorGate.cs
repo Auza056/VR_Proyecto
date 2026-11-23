@@ -31,6 +31,12 @@ namespace HospitalVR.Learning
             }
         }
 
+        void Update()
+        {
+            if (autoEnableWithoutHeadset && simulator && simulator.activeSelf && XRSettings.isDeviceActive)
+                DisableSimulator();
+        }
+
         [ContextMenu("Activar simulador")]
         public void EnableSimulator()
         {
